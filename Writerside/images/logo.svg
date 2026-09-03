@@ -1,0 +1,37 @@
+<svg width="72" height="40" viewBox="58 363 1135 479" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lensGradient" x1="78" y1="0" x2="1173" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F4FCC"/>
+      <stop offset="0.10" stop-color="#1154CB"/>
+      <stop offset="0.20" stop-color="#0D5ED7"/>
+      <stop offset="0.30" stop-color="#0B6CE9"/>
+      <stop offset="0.40" stop-color="#0B8FFC"/>
+      <stop offset="0.50" stop-color="#0FB5FA"/>
+      <stop offset="0.60" stop-color="#10BEFB"/>
+      <stop offset="0.70" stop-color="#12C0FB"/>
+      <stop offset="0.80" stop-color="#2ACAF0"/>
+      <stop offset="0.90" stop-color="#6FE2C8"/>
+      <stop offset="1" stop-color="#95EBB8"/>
+    </linearGradient>
+    <mask id="rightLensGap" x="650" y="350" width="560" height="520" maskUnits="userSpaceOnUse">
+      <rect x="650" y="350" width="560" height="520" fill="white"/>
+      <path d="M545 560A166 166 0 0 1 710 560M661 503L710 560L645 597"
+            stroke="black" stroke-width="88" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+
+  <path d="M114 590H145M1105 590H1137"
+        stroke="url(#lensGradient)" stroke-width="72" stroke-linecap="round"/>
+  <ellipse cx="354" cy="603" rx="184" ry="193"
+           stroke="url(#lensGradient)" stroke-width="54"/>
+  <ellipse cx="895" cy="603" rx="184" ry="193"
+           stroke="url(#lensGradient)" stroke-width="54" mask="url(#rightLensGap)"/>
+
+  <path d="M545 560A166 166 0 0 1 710 560M661 503L710 560L645 597"
+        stroke="url(#lensGradient)" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M263 603A91 100 0 0 1 354 503"
+        stroke="url(#lensGradient)" stroke-width="50" stroke-linecap="round"/>
+  <path d="M804 603A91 100 0 0 1 895 503"
+        stroke="url(#lensGradient)" stroke-width="50" stroke-linecap="round"/>
+</svg>

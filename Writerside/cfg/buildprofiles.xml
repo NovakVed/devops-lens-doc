@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <primary-color>blue</primary-color>
+        <header-logo>logo.svg</header-logo>
+        <images-prefix-override>images/</images-prefix-override>
+        <noindex-content>false</noindex-content>
+        <ignore-problems>VIS011,SCT001</ignore-problems>
+        <web-root>https://novakved.github.io</web-root>
+        <include-in-head>search-head.html</include-in-head>
+    </variables>
+    <footer>
+        <social type="linkedin" href="https://www.linkedin.com/in/vedran-novak/">Vedran Novak on LinkedIn</social>
+        <social type="blog" href="https://vednovak.com/">vednovak.com</social>
+        <social type="email" href="mailto:vednovak@gmail.com">Email Vedran Novak</social>
+        <social type="github" href="https://github.com/NovakVed/devops-lens-doc">Vedran Novak on GitHub</social>
+        <copyright>Vedran Novak</copyright>
+    </footer>
+</buildprofiles>
