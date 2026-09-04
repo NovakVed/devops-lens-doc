@@ -8,10 +8,10 @@ On every push to `main`, GitHub Actions builds the site and publishes it to GitH
 ```
 Writerside/
 ├── writerside.cfg          Project manifest (registers all four instances)
-├── azd.tree                Table of contents, English (instance: "azd")
-├── azd-zh.tree             TOC, 简体中文 (topics suffixed -zh)
-├── azd-ja.tree             TOC, 日本語 (topics suffixed -ja)
-├── azd-ko.tree             TOC, 한국어 (topics suffixed -ko)
+├── devops-lens.tree        Table of contents, English (instance: "devops-lens")
+├── devops-lens-zh.tree     TOC, 简体中文 (topics suffixed -zh)
+├── devops-lens-ja.tree     TOC, 日本語 (topics suffixed -ja)
+├── devops-lens-ko.tree     TOC, 한국어 (topics suffixed -ko)
 ├── v.list                  Variables (product name, repo URL, etc.)
 ├── c.list                  Categories
 ├── SCREENSHOTS.md          Shot list for replacing the placeholder images
@@ -53,8 +53,8 @@ Full reference: [Writerside Markdown syntax](https://www.jetbrains.com/help/writ
 
 1. Create `topics/Your-Page.md` — plus `Your-Page-zh.md`, `Your-Page-ja.md`, and
    `Your-Page-ko.md` for the translated instances.
-2. Add an entry to `azd.tree` (and the matching suffixed entry to each of
-   `azd-zh.tree`, `azd-ja.tree`, `azd-ko.tree`):
+2. Add an entry to `devops-lens.tree` (and the matching suffixed entry to each of
+   `devops-lens-zh.tree`, `devops-lens-ja.tree`, `devops-lens-ko.tree`):
    ```xml
    <toc-element topic="Your-Page.md"/>
    ```
@@ -72,7 +72,7 @@ docker run --rm \
   /bin/bash -c '
     /opt/builder/bin/idea.sh helpbuilderinspect \
       -source-dir /opt/sources \
-      -product Writerside/azd \
+      -product Writerside/devops-lens \
       -runner-output-dir /opt/sources/output \
       -output-dir /opt/sources/output
   '

@@ -61,7 +61,7 @@ jobs:
         continue-on-error: true
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: Writerside/azd
+          instance: Writerside/devops-lens
 
       # Guards the failure mode from 8a0035b: image refs that don't resolve
       # still build "successfully", they just ship a site with no screenshots.
