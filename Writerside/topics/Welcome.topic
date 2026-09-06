@@ -74,6 +74,8 @@
                    summary="No accounts, no usage analytics, no hidden uploads - what the plugin does and doesn't do with your data."/>
                 <a href="Terms-of-Service.md" type="mixed"
                    summary="Licence, restrictions, warranties, and liability for the plugin and this site."/>
+                <a href="Third-Party-Notices.md" type="library"
+                   summary="Open-source code and artwork bundled in the plugin, and the licenses that cover it."/>
             </cards>
 
             <cards narrow="true">

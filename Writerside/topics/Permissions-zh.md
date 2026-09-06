@@ -26,7 +26,7 @@ OAuth 会自动请求下列作用域代码。创建 PAT 时，请在 Azure DevOp
 | **Build → Read &amp; execute**              | `vso.build_execute`                  | 读取运行、日志、构件、定义和覆盖率；排队/取消/重试运行；编辑定义和保留租约。 |
 | **Pipeline Resources → Use**                | `vso.pipelineresources_use`          | 批准或拒绝受保护流水线资源的使用请求。 |
 | **Test Management → Read**                  | `vso.test`                           | 读取测试运行、结果和覆盖率；还包含头像所需的个人资料访问。 |
-| **Environment → Read &amp; manage**         | `vso.environment_manage`             | 读取环境和部署记录。Azure 没有只读环境作用域；它还包含 Agents 视图使用的代理池访问。 |
+| **Environment → Read &amp; manage**         | `vso.environment_manage`             | 读取环境和部署记录。Azure 没有只读环境作用域；它还包含 Agent pools 视图使用的代理池访问。 |
 
 OAuth 还会向 Microsoft 请求 `offline_access`，以便插件在 IDE 重启后刷新会话，而不必让你每次重新登录。它不会授予对其他 Azure DevOps 数据的访问权限。
 

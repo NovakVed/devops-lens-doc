@@ -147,20 +147,20 @@ A sub-page configuring the optional AI helpers - see [](AI-Features.md).
 ![The AI Settings page](ai-settings.png){ width="720" border-effect="line" thumbnail="true" }
 
 <deflist>
-    <def title="General AI Settings → Enable AI assistance">
+    <def title="AI features → Enable AI features">
         Master switch. <b>Default on</b>, but inert until you add and enable a provider: with no usable provider the
         plugin makes zero outbound AI calls, and the AI affordances point you at this page instead. Turning the switch
         off hides every AI affordance.
     </def>
-    <def title="General AI Settings → AI response language">
+    <def title="AI features → Response language">
         Which language the model writes summaries, code explanations, review notes, and pipeline log analysis in.
         <b>Auto</b> follows the IDE language; polishing text you wrote yourself always keeps the language you wrote it
-        in. The checkbox beneath - <b>Also use this language for PR titles, descriptions, and commit messages</b> - is
+        in. The checkbox beneath - <b>Also use it for pull request titles, descriptions and commit messages</b> - is
         a separate opt-in, <b>off by default</b>: those land in git history and on the pull request, where your team's
         convention matters more than your IDE's language. What you read inside the IDE follows the dropdown either way.
     </def>
-    <def title="AI Providers">
-        One row per provider instance (<b>Provider / Model / Enabled</b>). The first enabled row is the default. Add via
+    <def title="Model providers">
+        One row per provider instance (<b>Provider / Model / Active</b>). The first active row is the default. Add via
         the <b>Add AI Provider</b> dialog (OpenAI, Claude, Gemini, Ollama, GitHub Copilot; HTTP-API or CLI mode) and
         verify with <b>Test Connection</b> before saving.
         <p>On reasoning models the dialog also offers an <b>Effort</b> dropdown, between <b>Model</b> and the
@@ -169,11 +169,11 @@ A sub-page configuring the optional AI helpers - see [](AI-Features.md).
         you picked, and the default, <b>Model default (recommended)</b>, sends no effort setting at all. Models
         that have no such control simply don't show the row.</p>
     </def>
-    <def title="Per-Feature Provider">
-        Route <b>AI Summary</b>, <b>AI Review</b>, <b>Title + Description</b>, and <b>Explain Code</b> to specific
+    <def title="Provider per feature">
+        Route <b>Pull request summary</b>, <b>Code review</b>, <b>Title and description</b>, and <b>Explain code</b> to specific
         instances, or leave them on <b>Default</b>.
     </def>
-    <def title="Configure Prompts">
+    <def title="Prompt templates">
         Edit the system prompt for each feature.
     </def>
     <def title="AI agents (MCP) → Let AI agents change Azure DevOps">

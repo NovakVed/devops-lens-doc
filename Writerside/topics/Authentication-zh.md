@@ -53,7 +53,7 @@
 | **Build** → *Read &amp; execute*       | 流水线运行、日志、构件、定义、覆盖率、排队/取消/重试以及保留租约。                                                  |
 | **Pipeline Resources** → *Use*         | 批准或拒绝受保护资源的使用请求。                                                                                     |
 | **Test Management** → *Read*           | 测试运行、结果和覆盖率；还包含头像所需的个人资料访问。                                                               |
-| **Environment** → *Read &amp; manage*  | 环境和部署记录。Azure 没有只读环境作用域；它还包含 Agents 视图使用的代理池访问。                                    |
+| **Environment** → *Read &amp; manage*  | 环境和部署记录。Azure 没有只读环境作用域；它还包含 Agent pools 视图使用的代理池访问。                                    |
 
 > **推荐方案：** 只选择上面的项目。它们可支持 DevOps Lens 的所有功能，而不会授予对 Azure DevOps 账户其余部分的无限制访问。[](Permissions-zh.md)说明了每项权限的用途。
 > {style="tip"}
@@ -108,7 +108,6 @@ DevOps Lens 不再显示 Full/Standard 选择器。OAuth 始终请求 [](Permiss
 本地部署的服务器 **只支持 PAT**。Microsoft 登录会经由 `login.microsoftonline.com`
 重定向，而它无法访问你网络内部的服务器，因此插件会把你引导到令牌方式，而不是让流程走到一半才失败。
 
-![本地部署集合的工具窗口登录界面：Log In via Microsoft 置灰，Log In with Token 可用](oauth-access-scope-dialog.png){ width="720" border-effect="line" thumbnail="true" }
 
 你不会看不到那个按钮——你会看到它变灰。一旦仓库选择器解析出的是本地部署服务器， **Log In via Microsoft…**
 仍会留在界面上但处于禁用状态，并显示提示 *"Microsoft sign-in is only available for Azure DevOps Services (dev.azure.com).

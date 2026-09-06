@@ -90,7 +90,7 @@ git config --global credential.helper libsecret
 
 ## AI 機能が見つからない、またはエラーを返す
 
-- <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> を開き、**Enable AI assistance** がオンになっており、少なくとも 1 つのプロバイダーが構成され有効になっていることを確認します。
+- <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> を開き、**Enable AI features** がオンになっており、少なくとも 1 つのプロバイダーが構成され有効になっていることを確認します。
 - プロバイダーの行で **Test connection** をクリックします。失敗する場合は、API キー、モデル名、エンドポイント URL
   を再確認してください。
 - **Ollama** の場合は、デーモンがローカルで実行されており（`ollama serve`）、指定したモデルがプルされている（`ollama list`

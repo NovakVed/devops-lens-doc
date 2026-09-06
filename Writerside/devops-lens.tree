@@ -41,5 +41,6 @@
         <toc-element topic="Privacy-and-Data.md"/>
         <toc-element topic="Privacy-Policy.md"/>
         <toc-element topic="Terms-of-Service.md"/>
+        <toc-element topic="Third-Party-Notices.md"/>
     </toc-element>
 </instance-profile>

@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>Where</b>: open a PR, then click a file in the <b>changed-files tree</b>.</p>
-    <p><b>Comment</b>: the <b>+</b> in the diff gutter, or <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>.</p>
+    <p><b>Comment</b>: the <b>+</b> in the diff gutter, or <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>.</p>
     <p><b>Submit</b>: the <b>Submit</b> button on the diff's <b>Review:</b> toolbar carries the vote options.</p>
 </tldr>
 
@@ -45,9 +45,9 @@ In the diff's gutter right-click menu - directly above **Toggle Diff Aligning Mo
 ## Comment on a line
 
 <procedure title="Add an inline comment">
-    <step>Hover the gutter of a changed line - a <b>+</b> appears. Click it (or drag across line numbers to span a range). You can also press <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut> at the caret.</step>
+    <step>Hover the gutter of a changed line - a <b>+</b> appears. Click it (or drag across line numbers to span a range). You can also press <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut> at the caret. Select text first and the comment anchors to exactly those characters instead of to whole lines.</step>
     <step>Type your comment. The composer is the same one PR discussions use - a <b>Write</b> / <b>Preview</b> tab strip with the formatting toolbar on top, plus @mentions and image paste. See <a href="Discussions-and-Comments.md"/> for the editor in full.</step>
-    <step>Post it from the split submit button. The primary action is <b>Start Review</b>, which queues the comment as part of a pending review; its dropdown holds <b>Add Single Comment</b> (post immediately) and <b>Suggest change</b> (wrap the selection as a suggested change the author can apply).</step>
+    <step>Post it from the split submit button. The primary action is <b>Start Review</b>, which queues the comment as part of a pending review; its dropdown holds <b>Add Single Comment</b> (post immediately) and <b>Suggest change</b> (wrap what you typed as a suggested change the author can apply - anchored to a partial-line selection it replaces only the characters you highlighted, and the card still previews the whole line before and after).</step>
 </procedure>
 
 ![A new inline comment and an existing thread side by side in the diff viewer](inline-diff-comment.png){ width="720" border-effect="line" thumbnail="true" }

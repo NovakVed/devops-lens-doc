@@ -95,6 +95,7 @@ all title, copyright, and other intellectual-property rights in the Products. No
 
 5.2. Third-party software included with the Plugin remains subject to its own license terms and notices. If a
 third-party license gives you broader rights to a particular component, that license controls only that component.
+The components and their licenses are listed in [Third-Party Notices](Third-Party-Notices.md).
 
 5.3. If you voluntarily provide an idea, suggestion, or other feedback about the Products, you grant me a worldwide,
 perpetual, irrevocable, non-exclusive, royalty-free license to use and incorporate that feedback without an obligation

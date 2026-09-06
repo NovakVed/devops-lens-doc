@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>場所</b>: PRタイムラインのAI要約カード、差分ツールバー、すべてのコメントエディター。</p>
-    <p><b>有効にする</b>: <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> で <b>Enable AI assistance</b> をオンにし、プロバイダーを追加します。</p>
+    <p><b>有効にする</b>: <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> で <b>Enable AI features</b> をオンにし、プロバイダーを追加します。</p>
 </tldr>
 
 任意のAIヘルパー: PRの要約、差分全体のレビュー、コードの説明、コミットメッセージ、PRのタイトル/説明の下書き、文法の校正、パイプラインログの分析。
@@ -29,7 +29,7 @@ CodeのようなAIエージェントを使っていますか? プラグインは
 | **Run AI Review**                         | 差分をたどってインラインのレビューコメントを提案します。                                                                    | 差分ツールバー / 変更ツリーメニュー / オーバーフロー                 |
 | **Explain This File**                     | ファイルまたは選択範囲のわかりやすい説明をストリーミングします。                                                            | 差分内で右クリック                                                   |
 | **Generate Commit Message with AI**       | ステージされた変更からコミットメッセージを下書きします。                                                                    | Commitツールウィンドウ                                               |
-| **Title + Description**                   | ブランチの差分からCreate-PRフォームを事前入力します。                                                                       | Create Pull Requestフォーム                                          |
+| **Title and description**                   | ブランチの差分からCreate-PRフォームを事前入力します。                                                                       | Create Pull Requestフォーム                                          |
 | **Polish grammar &amp; spelling with AI** | 任意のコメントや説明をその場で整えます。                                                                                    | すべてのコメントエディター                                           |
 | **Analyze logs with AI**                  | 完了したパイプライン実行をログから説明します - 失敗なら根本原因と修正案、成功なら短い要約。ログの関連部分のみを送信します。 | [パイプライン実行のジョブログ](Pipelines-ja.md#analyze-logs-with-ai) |
 
@@ -80,7 +80,7 @@ PRタイムラインの右サイドバーには **AI review** セクションが
 | **Verbosity**                      | スライダー: **Brief** · **Neutral** · **Verbose**。                                                                                                                              |
 | **Formality tone**                 | スライダー: **Informal** · **Neutral** · **Formal**。                                                                                                                            |
 | **Personality**                    | 自由入力 - 任意のペルソナ。例: 「少し皮肉屋のプリンシパルエンジニア」。                                                                                                          |
-| **Customization prompt**           | 自由入力 - 既定を使う場合は空欄のままにします。これはAI Settingsの **Configure Prompts → Pull Request summary** と同じオーバーライドなので、どちらの画面での編集も同期されます。 |
+| **Customization prompt**           | 自由入力 - 既定を使う場合は空欄のままにします。これはAI Settingsの **Prompt templates → Pull Request summary** と同じオーバーライドなので、どちらの画面での編集も同期されます。 |
 
 Saveボタンはありません - コントロールを編集してポップアップを閉じると適用されます。
 
@@ -88,7 +88,7 @@ Saveボタンはありません - コントロールを編集してポップア�
 
 ## プロバイダーを設定する
 
-<ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> を開き、**Enable AI assistance**（マスタースイッチ）をオンにします。次に **AI Providers** テーブルでプロバイダーを追加します。
+<ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> を開き、**Enable AI features**（マスタースイッチ）をオンにします。次に **Model providers** テーブルでプロバイダーを追加します。
 
 ![AI Settingsページ: プロバイダーと機能ごとのルーティング](configure-providers-ja.png){ width="720" border-effect="line" thumbnail="true" }
 
@@ -120,33 +120,33 @@ Saveボタンはありません - コントロールを編集してポップア�
 
 ## 機能をプロバイダーにルーティングする
 
-**Per-Feature Provider** パネルは各機能を特定のインスタンスに固定します -
+**Provider per feature** パネルは各機能を特定のインスタンスに固定します -
 安価な機能を小さいモデルに、重いレビューを賢いモデルに送るのに便利です:
 
 ```
-AI Summary          → [Default ▾]
-AI Review           → [Default ▾]
-Title + Description → [Default ▾]   (also used by Generate Commit Message)
-Explain Code        → [Default ▾]
+Pull request summary  → [Default ▾]
+Code review           → [Default ▾]
+Title and description → [Default ▾]   (also used by Generate Commit Message)
+Explain code          → [Default ▾]
 ```
 
 行を **Default** のままにすると、最初の有効なプロバイダーが使われます。 **同じファミリーを複数回**追加でき（例:
 OpenAIの行を2つ、安価なモデルと賢いモデル）、それぞれ独立してルーティングできます。
 
-### Configure Prompts
+### Prompt templates
 
-**Configure Prompts** パネルでは、各機能の背後にあるシステムプロンプトを編集できます。プロンプトを編集すると、その機能のキャッシュされた応答が無効化されます。
+**Prompt templates** パネルでは、各機能の背後にあるシステムプロンプトを編集できます。プロンプトを編集すると、その機能のキャッシュされた応答が無効化されます。
 
 ## 応答言語を選ぶ
 
-**General AI Settings** グループの、マスタースイッチのすぐ下にある2つの設定です。
+**AI features** グループの、マスタースイッチのすぐ下にある2つの設定です。
 
 | 設定                                                                        | 既定 |
 |-----------------------------------------------------------------------------|------|
-| **AI response language**                                                    | Auto |
-| **Also use this language for PR titles, descriptions, and commit messages** | オフ |
+| **Response language**                                                    | Auto |
+| **Also use it for pull request titles, descriptions and commit messages** | オフ |
 
-**AI response language** は、モデルが要約、コードの説明、レビューノート、パイプラインログ分析を書く言語です。 **Auto** は
+**Response language** は、モデルが要約、コードの説明、レビューノート、パイプラインログ分析を書く言語です。 **Auto** は
 IDEの言語に従います。自分で書いたテキストの推敲は、常に書いた言語のまま保たれます。その下のチェックボックスが独立したオプトインになっているのは、PRのタイトル・説明・コミットメッセージが
 gitの履歴とプルリクエスト上に残るものであり、IDEの言語よりチームの慣習が重要だからです。IDE内で読むものは、どちらの場合もドロップダウンに従います。
 
@@ -172,4 +172,4 @@ AIの応答は **PRごと + コミットSHAごと** にキャッシュされま�
 ## すべてをローカルに保つ、またはオフにする
 
 - **ローカル推論:** すべての機能を `localhost` 上の **Ollama** インスタンスにルーティングします - コードがマシンから出ることはありません。
-- **完全にオフ:** **Enable AI assistance** のチェックを外します。すべてのAIのUIがメニューやツールバーから消え、プラグインは外部へのAI呼び出しを一切行いません。
+- **完全にオフ:** **Enable AI features** のチェックを外します。すべてのAIのUIがメニューやツールバーから消え、プラグインは外部へのAI呼び出しを一切行いません。

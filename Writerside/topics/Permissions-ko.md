@@ -26,7 +26,7 @@ OAuth는 아래 범위 코드를 자동으로 요청합니다. PAT를 만들 때
 | **Build → Read &amp; execute**              | `vso.build_execute`                 | 실행, 로그, 아티팩트, 정의, 커버리지 읽기, 실행 큐/취소/재시도, 정의와 보존 임대 편집. |
 | **Pipeline Resources → Use**                | `vso.pipelineresources_use`         | 보호된 파이프라인 리소스 사용 요청 승인 또는 거부. |
 | **Test Management → Read**                  | `vso.test`                          | 테스트 실행, 결과 및 커버리지 읽기. 아바타에 쓰이는 프로필 액세스도 포함됩니다. |
-| **Environment → Read &amp; manage**         | `vso.environment_manage`            | 환경과 배포 기록 읽기. Azure에는 읽기 전용 환경 범위가 없으며 Agents 보기에 쓰이는 에이전트 풀 액세스도 포함됩니다. |
+| **Environment → Read &amp; manage**         | `vso.environment_manage`            | 환경과 배포 기록 읽기. Azure에는 읽기 전용 환경 범위가 없으며 Agent pools 보기에 쓰이는 에이전트 풀 액세스도 포함됩니다. |
 
 OAuth는 Microsoft에 `offline_access`도 요청합니다. 이 권한은 IDE를 다시 시작할 때마다 로그인하지 않아도 세션을 갱신하게 해 주며, 추가 Azure DevOps 데이터에 대한 액세스는 부여하지 않습니다.
 

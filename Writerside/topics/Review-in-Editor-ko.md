@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>위치</b>: 일반 편집기 - 체크아웃한 브랜치가 열린 PR의 소스 브랜치와 일치할 때.</p>
-    <p><b>댓글</b>: 여백의 <b>+</b>, 또는 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>.</p>
+    <p><b>댓글</b>: 여백의 <b>+</b>, 또는 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>.</p>
     <p><b>전환</b>: 메인 툴바 브랜치 위젯 팝업의 <b>Review Mode</b>.</p>
 </tldr>
 
@@ -33,7 +33,7 @@ PR에서 변경된 내용이 있는 모든 파일에는 다음이 표시됩니�
 ## 댓글 달기와 리뷰
 
 <procedure title="편집기에서 댓글 추가하기">
-    <step>여백의 <b>+</b>를 클릭합니다(또는 캐럿 위치에서 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>를 누릅니다).</step>
+    <step>여백의 <b>+</b>를 클릭합니다(또는 캐럿 위치에서 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>를 누릅니다). 먼저 텍스트를 선택하면 댓글이 정확히 그 문자 범위에 연결됩니다.</step>
     <step>댓글을 입력합니다 - 전체 마크다운을 지원하며, 다른 곳과 동일한 도구 모음, @멘션, 제안, 이미지 붙여넣기를 사용할 수 있습니다.</step>
     <step>바로 게시하거나, 대기 중인 리뷰의 일부로 대기열에 넣거나, 제안된 변경으로 감쌀 수 있습니다.</step>
 </procedure>

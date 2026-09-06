@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>Where</b>: your regular editor, whenever the checked-out branch is the source branch of an open PR.</p>
-    <p><b>Comment</b>: the <b>+</b> in the gutter, or <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>.</p>
+    <p><b>Comment</b>: the <b>+</b> in the gutter, or <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>.</p>
     <p><b>Toggle</b>: <b>Review Mode</b> in the main-toolbar branch widget's popup.</p>
 </tldr>
 
@@ -47,7 +47,7 @@ thread on the right line.
 ## Comment and review
 
 <procedure title="Add a comment from the editor">
-    <step>Click the <b>+</b> in the gutter (or press <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut> at the caret).</step>
+    <step>Click the <b>+</b> in the gutter (or press <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut> at the caret). Select text first to anchor the comment to exactly those characters.</step>
     <step>Type your comment - full Markdown, with the same toolbar, @mentions, suggestions, and image paste as everywhere else.</step>
     <step>Post it immediately, queue it as part of a pending review, or wrap it as a suggested change.</step>
 </procedure>

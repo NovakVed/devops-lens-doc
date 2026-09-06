@@ -86,7 +86,7 @@ git config --global credential.helper libsecret
 
 ## AI 기능이 없거나 오류를 반환함
 
-- <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>를 열고 **Enable AI assistance**가 체크되어 있으며 하나 이상의 공급자가 구성되고 활성화되어 있는지 확인하세요.
+- <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>를 열고 **Enable AI features**가 체크되어 있으며 하나 이상의 공급자가 구성되고 활성화되어 있는지 확인하세요.
 - 공급자 행에서 **Test connection**을 클릭하세요 - 실패하면 API 키, 모델 이름, 엔드포인트 URL을 다시 확인하세요.
 - **Ollama**의 경우 데몬이 로컬에서 실행 중이고 (`ollama serve`) 지정한 모델을 가져왔는지 (`ollama list`) 확인하세요.
 - **CLI 공급자**(Claude Code, Codex, Copilot CLI)의 경우 바이너리가 `PATH`에 있고 로그인되어 있는지 (`claude /login` 등) 확인하세요.

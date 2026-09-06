@@ -56,7 +56,7 @@
 | **Build** → *Read &amp; execute*       | 파이프라인 실행, 로그, 아티팩트, 정의, 커버리지, 큐/취소/재시도 및 보존 임대.                                                                                |
 | **Pipeline Resources** → *Use*         | 보호된 리소스 사용 요청 승인 또는 거부.                                                                                                                     |
 | **Test Management** → *Read*           | 테스트 실행, 결과 및 커버리지. 아바타에 쓰이는 프로필 액세스도 포함됩니다.                                                                                  |
-| **Environment** → *Read &amp; manage*  | 환경과 배포 기록. Azure에는 읽기 전용 환경 범위가 없으며 Agents 보기에 쓰이는 에이전트 풀 액세스도 포함됩니다.                                               |
+| **Environment** → *Read &amp; manage*  | 환경과 배포 기록. Azure에는 읽기 전용 환경 범위가 없으며 Agent pools 보기에 쓰이는 에이전트 풀 액세스도 포함됩니다.                                               |
 
 ### 2. 플러그인에 추가하기
 
@@ -108,7 +108,6 @@ DevOps Lens의 Full/Standard 선택 화면은 없습니다. OAuth는 [](Permissi
 온프레미스 서버는 **PAT 전용**입니다. Microsoft 로그인은 `login.microsoftonline.com`을 거쳐 리디렉션되는데, 이는 네트워크 내부의 서버에 도달할 수 없습니다. 그래서 플러그인은
 흐름이 도중에 실패하도록 두는 대신 토큰 쪽으로 안내합니다.
 
-![온프레미스 컬렉션의 도구 창 로그인 화면: Log In via Microsoft는 비활성, Log In with Token은 활성](oauth-access-scope-dialog.png){ width="720" border-effect="line" thumbnail="true" }
 
 버튼이 사라지지는 않습니다 - 흐리게 비활성화된 상태로 보입니다. 리포지토리 선택기가 온프레미스 서버를 확인하고 나면 **Log In via Microsoft…** 는 화면에 남아 있되 비활성화되며, 다음 툴팁이
 표시됩니다: *"Microsoft sign-in is only available for Azure DevOps Services (dev.azure.com). Use a Personal Access Token for

@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>位置</b>：你日常使用的编辑器——当检出的分支是某个打开 PR 的源分支时。</p>
-    <p><b>评论</b>：装订线中的 <b>+</b>，或 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>。</p>
+    <p><b>评论</b>：装订线中的 <b>+</b>，或 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>。</p>
     <p><b>开关</b>：主工具栏分支小组件弹出菜单中的 <b>Review Mode</b>。</p>
 </tldr>
 
@@ -33,7 +33,7 @@ PR 中每个有改动的文件都会获得：
 ## 评论与审查
 
 <procedure title="从编辑器添加评论">
-    <step>点击装订线中的 <b>+</b>（或在光标处按 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>）。</step>
+    <step>点击装订线中的 <b>+</b>（或在光标处按 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>）。先选中文本，评论就会精确锚定到这些字符。</step>
     <step>输入你的评论——支持完整的 markdown，配有与其他地方相同的工具栏、@提及、建议改动以及图片粘贴。</step>
     <step>立即发布它、将它排入一次待提交的审查队列，或将它包装为一项建议改动（suggested change）。</step>
 </procedure>

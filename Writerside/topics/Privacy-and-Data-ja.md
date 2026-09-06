@@ -61,7 +61,7 @@ AI が **有効**でプロバイダーが構成されている場合のみ送信
 ロックファイル、ミニファイ済み・自動生成ファイル、バイナリ、ビルド出力フォルダーは取り除かれます。リネームされたファイルは実際の編集分のみが含まれ、削除されたファイルは内容の代わりに1行のメモ（パスと削除された行数）だけが含まれます。
 
 各 AI リクエストには、プラグインがその機能向けに構築するシステムプロンプトも含まれます。これらのプロンプトは <ui-path>
-Settings | Tools | DevOps Lens | AI Settings | Configure Prompts</ui-path> で上書きできます。
+Settings | Tools | DevOps Lens | AI Settings | Prompt templates</ui-path> で上書きできます。
 
 ### プロバイダーのデータフロー一覧
 

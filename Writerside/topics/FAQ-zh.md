@@ -58,10 +58,9 @@ OAuth 令牌会自动刷新；PAT 会在你创建时设定的日期到期。PAT 
     <step>点击 <b>Create</b> 并复制令牌——它只会显示一次。</step>
 </procedure>
 
-请像对待密码一样对待你的
-PAT——绝不要分享它或把它提交到源代码管理中。各功能所需的作用域请参阅[](Authentication-zh.md)。
+令牌只由你本人保管：不要粘贴到聊天、工单或源代码管理中，一旦泄露就在 Azure DevOps 中将其吊销。各功能所需的作用域请参阅[](Authentication-zh.md)。
 
-### 为什么"Mark file as viewed"会以 401 失败？
+### 将文件标记为已查看时返回 401 - 是令牌有问题吗？
 
 DevOps Lens 会先在本地记录该标记，因此即使 Azure 拒绝其未公开的“已查看”状态端点，审查仍可继续。服务器同步是尽力而为的：401 可能表示你使用的 Azure DevOps 版本或组织没有向受作用域限制的凭据开放该内部端点。不要仅为此功能扩大令牌权限。请刷新 PR；只有当账户本身已过期、其他请求也失败时才重新登录。有关本地“已查看”状态的工作方式，请参阅 [](Code-Review-zh.md)。
 
@@ -84,7 +83,7 @@ DevOps Lens 会先在本地记录该标记，因此即使 Azure 拒绝其未公�
 
 ### 我如何在不进行任何 AI 调用的情况下使用该插件？
 
-取消勾选 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 顶部的 **Enable AI assistance**。所有
+取消勾选 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 顶部的 **Enable AI features**。所有
 AI 功能都会从菜单和工具栏中消失，并且不会进行任何 AI 调用。
 
 你也可以保持 AI 开启，并将每项功能路由到本地的 **Ollama** 实例，以实现完全在设备上进行的推理。

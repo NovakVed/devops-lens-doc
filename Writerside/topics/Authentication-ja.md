@@ -57,7 +57,7 @@
 | **Build** → *Read &amp; execute*       | パイプライン実行、ログ、成果物、定義、カバレッジ、開始/キャンセル/再試行、保持リース。                                                                                      |
 | **Pipeline Resources** → *Use*         | 保護されたリソースの使用要求の承認または拒否。                                                                                                                             |
 | **Test Management** → *Read*           | テスト実行、結果、カバレッジ。アバターに使用するプロフィールアクセスも含まれます。                                                                                         |
-| **Environment** → *Read &amp; manage*  | 環境とデプロイ記録。Azure には読み取り専用の環境スコープがなく、Agents ビューで使うエージェントプールアクセスも含まれます。                                                  |
+| **Environment** → *Read &amp; manage*  | 環境とデプロイ記録。Azure には読み取り専用の環境スコープがなく、Agent pools ビューで使うエージェントプールアクセスも含まれます。                                                  |
 
 ### 2. プラグインに追加する
 
@@ -110,7 +110,6 @@ DevOps Lens 独自の Full/Standard 選択画面はありません。OAuth は [
 オンプレミスのサーバーは **PAT のみ** です。Microsoft サインインは `login.microsoftonline.com`
 経由でリダイレクトしますが、これはネットワーク内部のサーバーには到達できません。そのためプラグインは、フローが途中で失敗するに任せるのではなく、トークンの使用へ誘導します。
 
-![オンプレミスコレクションのツールウィンドウのサインイン画面: Log In via Microsoft は淡色表示、Log In with Token は有効](oauth-access-scope-dialog.png){ width="720" border-effect="line" thumbnail="true" }
 
 ボタンがなくなるわけではなく、グレーアウトされた状態で表示されます。リポジトリセレクターがオンプレミスのサーバーを解決すると、
 **Log In via Microsoft…** は画面に残りつつ無効化され、ツールチップに *"Microsoft sign-in is only available for Azure

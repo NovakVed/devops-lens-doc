@@ -32,7 +32,7 @@ token form.
 | **Build → Read &amp; execute**          | `vso.build_execute`                 | Read runs, logs, artifacts, definitions and coverage; queue/cancel/retry runs; edit definitions and leases.   |
 | **Pipeline Resources → Use**            | `vso.pipelineresources_use`         | Approve or reject requests to use protected pipeline resources.                                               |
 | **Test Management → Read**              | `vso.test`                          | Read test runs, results and coverage. This also includes profile access used for avatars.                     |
-| **Environment → Read &amp; manage**     | `vso.environment_manage`            | Read environments and deployment records. Azure has no read-only environment scope; it also includes agent-pool access used by the Agents view. |
+| **Environment → Read &amp; manage**     | `vso.environment_manage`            | Read environments and deployment records. Azure has no read-only environment scope; it also includes agent-pool access used by the Agent pools view. |
 
 OAuth also asks Microsoft for `offline_access`, which lets the plugin refresh the session without making you sign in on
 every IDE restart. It does not grant access to additional Azure DevOps data.

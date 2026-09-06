@@ -85,10 +85,10 @@ generating one requires the user to already be authenticated, but the token itse
     <step>Click <b>Create</b> and copy the token - it's shown only once.</step>
 </procedure>
 
-Treat your PAT like a password - never share it or commit it to source control. See [](Authentication.md)
-for the scopes each feature needs.
+Keep the token to yourself: don't paste it into chat, tickets or source control, and revoke it in Azure
+DevOps if it ever leaks. See [](Authentication.md) for the scopes each feature needs.
 
-### Why does "Mark file as viewed" fail with a 401?
+### Marking a file as viewed returns 401 - is my token wrong?
 
 DevOps Lens records the mark locally first, so reviewing continues even if Azure rejects its undocumented viewed-state
 endpoint. Server mirroring is best-effort: a 401 can mean that your Azure DevOps version or organization does not expose
@@ -117,7 +117,7 @@ the plugin's, and it only happens if you set such an agent up. See [](MCP-Tools.
 
 ### How can I use the plugin without any AI calls?
 
-Uncheck **Enable AI assistance** at the top of <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>. Every AI affordance disappears from menus and toolbars, and no AI calls are made.
+Uncheck **Enable AI features** at the top of <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>. Every AI affordance disappears from menus and toolbars, and no AI calls are made.
 
 You can also leave AI on and route every feature to a local **Ollama** instance for fully on-device inference.
 

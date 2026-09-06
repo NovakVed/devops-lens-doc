@@ -136,20 +136,20 @@ Pipelines は常に有効です。リポジトリが Azure DevOps のリモー�
 
 ![AI Settings ページ](ai-settings-ja.png){ width="720" border-effect="line" thumbnail="true" }
 
-- **General AI Settings → Enable AI assistance** - マスタースイッチです。 **既定はオン**
+- **AI features → Enable AI features** - マスタースイッチです。 **既定はオン**
   ですが、プロバイダーを追加して有効化するまでは何も起こりません。使用可能なプロバイダーがない場合、プラグインは外部への AI
   呼び出しを一切行わず、AI の各機能は代わりにこのページへ案内します。スイッチをオフにすると、すべての AI 機能が非表示になります。
-- **General AI Settings → AI response language** - モデルが要約、コードの説明、レビューノート、パイプラインログ分析を書く
+- **AI features → Response language** - モデルが要約、コードの説明、レビューノート、パイプラインログ分析を書く
   言語です。 **Auto** は IDE の言語に従います。自分で書いたテキストの推敲は、常に書いた言語のまま保たれます。その下のチェック
-  ボックス **Also use this language for PR titles, descriptions, and commit messages** は独立したオプトインで、 **既定はオフ**
+  ボックス **Also use it for pull request titles, descriptions and commit messages** は独立したオプトインで、 **既定はオフ**
   です。PR のタイトル・説明・コミットメッセージは git の履歴とプルリクエスト上に残るもので、IDE の言語よりチームの慣習が
   重要だからです。IDE 内で読むものは、どちらの場合もドロップダウンに従います。
-- **AI Providers** - プロバイダーインスタンスごとに 1 行（ **Provider / Model / Enabled**）。最初に有効になっている行が既定になります。
+- **Model providers** - プロバイダーインスタンスごとに 1 行（ **Provider / Model / Active**）。最初に有効になっている行が既定になります。
   **Add AI Provider** ダイアログから追加し（OpenAI、Claude、Gemini、Ollama、GitHub Copilot。HTTP-API または CLI モード）、保存する前に
   **Test Connection** で動作を確認します。
-- **Per-Feature Provider** - **AI Summary**、 **AI Review**、 **Title + Description**、 **Explain Code**
+- **Provider per feature** - **Pull request summary**、 **Code review**、 **Title and description**、 **Explain code**
   を特定のインスタンスにルーティングするか、 **Default** のままにします。
-- **Configure Prompts** - 各機能のシステムプロンプトを編集します。
+- **Prompt templates** - 各機能のシステムプロンプトを編集します。
 - **AI agents (MCP) → Let AI agents change Azure DevOps** - **既定はオフ**。IDE 内蔵の MCP
   サーバーに接続した AI エージェントは、サインイン済みの接続を通じてプルリクエストとパイプラインを常に **読み取り**
   できます。そのための設定は不要です。この設定は、変更を伴う操作（コメント、投票、スレッドの解決、パイプラインの実行とキャンセル）

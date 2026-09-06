@@ -59,7 +59,7 @@ Azure DevOps Server）。任何内容都不会经过第三方服务器中转。
 差异在离开 IDE 之前会经过预过滤：锁定文件、压缩和自动生成的文件、二进制文件以及构建输出文件夹会被剔除；重命名的文件只包含其实际编辑内容，已删除的文件只包含一行说明（路径和删除的行数）而不是其内容。
 
 每个 AI 请求还会附带插件为该功能构建的系统提示词。你可以在 <ui-path>Settings | Tools | DevOps Lens | AI
-Settings | Configure Prompts</ui-path> 中覆盖这些提示词。
+Settings | Prompt templates</ui-path> 中覆盖这些提示词。
 
 ### 提供商数据流矩阵
 

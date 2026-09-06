@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>위치</b>: PR을 연 뒤 <b>변경된 파일 트리</b>에서 파일을 클릭하세요.</p>
-    <p><b>댓글</b>: diff 여백 (gutter)의 <b>+</b>, 또는 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>.</p>
+    <p><b>댓글</b>: diff 여백 (gutter)의 <b>+</b>, 또는 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>.</p>
     <p><b>제출</b>: diff의 <b>Review:</b> 도구 모음에 있는 <b>Submit</b> 버튼에 투표 옵션이 있습니다.</p>
 </tldr>
 
@@ -54,9 +54,9 @@ diff의 여백 (gutter) 오른쪽 클릭 메뉴에서 - **Toggle Diff Aligning M
 ## 한 줄에 댓글 달기
 
 <procedure title="인라인 댓글 추가하기">
-    <step>변경된 줄의 여백에 마우스를 올리면 <b>+</b>가 나타납니다. 이를 클릭하세요(또는 줄 번호를 가로질러 드래그하면 범위를 지정할 수 있습니다). 캐럿 위치에서 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>을 눌러도 됩니다.</step>
+    <step>변경된 줄의 여백에 마우스를 올리면 <b>+</b>가 나타납니다. 이를 클릭하세요(또는 줄 번호를 가로질러 드래그하면 범위를 지정할 수 있습니다). 캐럿 위치에서 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>을 눌러도 됩니다. 먼저 텍스트를 선택하면 댓글이 줄 전체가 아니라 정확히 그 문자 범위에 연결됩니다.</step>
     <step>댓글을 입력하세요. 편집기(composer)는 PR 토론과 동일한 것입니다. 상단에 서식 도구 모음이 있는 <b>Write</b> / <b>Preview</b> 탭 스트립과 @멘션, 이미지 붙여넣기를 지원합니다. 편집기 전체에 대한 내용은 <a href="Discussions-and-Comments-ko.md"/>을 참조하세요.</step>
-    <step>분할 제출 버튼으로 게시하세요. 기본 액션은 <b>Start Review</b>로, 댓글을 보류 중인 리뷰의 일부로 대기열에 넣습니다. 드롭다운에는 <b>Add Single Comment</b>(즉시 게시)와 <b>Suggest change</b>(선택 영역을 작성자가 적용할 수 있는 제안된 변경으로 감싸기)가 있습니다.</step>
+    <step>분할 제출 버튼으로 게시하세요. 기본 액션은 <b>Start Review</b>로, 댓글을 보류 중인 리뷰의 일부로 대기열에 넣습니다. 드롭다운에는 <b>Add Single Comment</b>(즉시 게시)와 <b>Suggest change</b>(입력한 내용을 작성자가 적용할 수 있는 제안된 변경으로 감싸기 - 줄의 일부를 선택한 경우 선택한 문자만 바뀌며, 카드에는 줄 전체의 변경 전후가 미리 표시됩니다)가 있습니다.</step>
 </procedure>
 
 ![diff 뷰어에 나란히 놓인 새 인라인 댓글과 기존 스레드](inline-diff-comment-ko.png){ width="720" border-effect="line" thumbnail="true" }

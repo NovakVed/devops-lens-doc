@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>場所</b>: プルリクエストを開き、<b>changed-files ツリー</b>でファイルをクリックします。</p>
-    <p><b>コメント</b>: 差分ガターの <b>+</b>、または <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>。</p>
+    <p><b>コメント</b>: 差分ガターの <b>+</b>、または <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>。</p>
     <p><b>送信</b>: 差分の <b>Review:</b> ツールバーにある <b>Submit</b> ボタンに投票オプションがあります。</p>
 </tldr>
 
@@ -62,9 +62,9 @@ IntelliJ ネイティブの差分ビューアーでプルリクエストをレ�
 ## 行にコメントする
 
 <procedure title="インラインコメントを追加する">
-    <step>変更された行のガターにマウスを合わせると <b>+</b> が表示されます。これをクリックします（または行番号をドラッグして範囲を指定します）。キャレット位置で <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut> を押すこともできます。</step>
+    <step>変更された行のガターにマウスを合わせると <b>+</b> が表示されます。これをクリックします（または行番号をドラッグして範囲を指定します）。キャレット位置で <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut> を押すこともできます。先にテキストを選択しておくと、コメントは行全体ではなく選択した文字範囲に正確に対応付けられます。</step>
     <step>コメントを入力します。コンポーザーはプルリクエストのディスカッションと同じもので、上部に整形ツールバーを備えた <b>Write</b> / <b>Preview</b> のタブストリップ、さらに @メンションと画像の貼り付けに対応しています。エディターの詳細は<a href="Discussions-and-Comments-ja.md"/>を参照してください。</step>
-    <step>分割された送信ボタンから投稿します。主アクションは <b>Start Review</b> で、コメントを保留中のレビューの一部としてキューに追加します。そのドロップダウンには <b>Add Single Comment</b>（すぐに投稿）と <b>Suggest change</b>（選択範囲を作成者が適用できる変更提案としてラップ）があります。</step>
+    <step>分割された送信ボタンから投稿します。主アクションは <b>Start Review</b> で、コメントを保留中のレビューの一部としてキューに追加します。そのドロップダウンには <b>Add Single Comment</b>（すぐに投稿）と <b>Suggest change</b>（入力内容を作成者が適用できる変更提案としてラップ。行の一部を選択している場合は選択した文字だけを置き換え、カードには行全体の変更前後がプレビュー表示されます）があります。</step>
 </procedure>
 
 ![差分ビューアーに並ぶ、新規のインラインコメントと既存のスレッド](inline-diff-comment-ja.png){ width="720" border-effect="line" thumbnail="true" }

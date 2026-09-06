@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>位置</b>：PR 时间线上的 AI 摘要卡片、差异工具栏以及每个评论编辑器。</p>
-    <p><b>如何开启</b>：在 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 中开启 <b>Enable AI assistance</b>，然后添加服务商。</p>
+    <p><b>如何开启</b>：在 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 中开启 <b>Enable AI features</b>，然后添加服务商。</p>
 </tldr>
 
 可选的 AI 助手：PR 摘要、完整差异审查、代码解释、提交消息、PR 标题/描述草稿、语法润色以及管道日志分析。 **自带服务商** -
@@ -26,7 +26,7 @@ OpenAI、Claude、Gemini、Ollama 或 GitHub Copilot - 并可将每项功能路�
 | **Run AI Review**                         | 遍历差异并提出内联审查评论。                                                                                | 差异工具栏 / 变更树菜单 / 溢出菜单                         |
 | **Explain This File**                     | 流式输出对某个文件或选区的通俗英文解释。                                                                    | 在差异中右键单击                                           |
 | **Generate Commit Message with AI**       | 根据你暂存的更改起草一条提交消息。                                                                          | Commit 工具窗口                                            |
-| **Title + Description**                   | 根据分支的差异预填 Create-PR 表单。                                                                         | Create Pull Request 表单                                   |
+| **Title and description**                   | 根据分支的差异预填 Create-PR 表单。                                                                         | Create Pull Request 表单                                   |
 | **Polish grammar &amp; spelling with AI** | 就地清理任意评论或描述。                                                                                    | 每个评论编辑器                                             |
 | **Analyze logs with AI**                  | 根据日志解释一次已结束的管道运行 - 失败时给出根本原因与修复建议，成功时给出简短摘要。只发送日志的相关部分。 | [管道运行的作业日志](Pipelines-zh.md#analyze-logs-with-ai) |
 
@@ -72,7 +72,7 @@ PR 时间线的右侧边栏中有一个 **AI review** 区块 - 用于一眼看�
 | **Verbosity**                      | 滑块：**Brief** · **Neutral** · **Verbose**。                                                                                                    |
 | **Formality tone**                 | 滑块：**Informal** · **Neutral** · **Formal**。                                                                                                  |
 | **Personality**                    | 自由文本 - 可选的人设，例如"一位略带讽刺的首席工程师"。                                                                                          |
-| **Customization prompt**           | 自由文本 - 留空则使用默认值。它与 AI Settings 中的 **Configure Prompts → Pull Request summary** 是同一个覆盖项，因此在任一处的编辑都会保持同步。 |
+| **Customization prompt**           | 自由文本 - 留空则使用默认值。它与 AI Settings 中的 **Prompt templates → Pull Request summary** 是同一个覆盖项，因此在任一处的编辑都会保持同步。 |
 
 没有保存按钮 - 编辑控件后关闭弹窗即可应用。
 
@@ -80,8 +80,8 @@ PR 时间线的右侧边栏中有一个 **AI review** 区块 - 用于一眼看�
 
 ## 配置服务商
 
-打开 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 并开启 **Enable AI assistance**（总开关）。然后在
-**AI Providers** 表中添加服务商。
+打开 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> 并开启 **Enable AI features**（总开关）。然后在
+**Model providers** 表中添加服务商。
 
 ![AI Settings 页面：服务商与按功能路由](configure-providers.png){ width="720" border-effect="line" thumbnail="true" }
 
@@ -113,32 +113,32 @@ PR 时间线的右侧边栏中有一个 **AI review** 区块 - 用于一眼看�
 
 ## 将功能路由到服务商
 
-**Per-Feature Provider** 面板将每项功能固定到特定实例 - 便于将廉价功能发送给小模型，而将繁重的审查发送给智能模型：
+**Provider per feature** 面板将每项功能固定到特定实例 - 便于将廉价功能发送给小模型，而将繁重的审查发送给智能模型：
 
 ```
-AI Summary          → [Default ▾]
-AI Review           → [Default ▾]
-Title + Description → [Default ▾]   (also used by Generate Commit Message)
-Explain Code        → [Default ▾]
+Pull request summary  → [Default ▾]
+Code review           → [Default ▾]
+Title and description → [Default ▾]   (also used by Generate Commit Message)
+Explain code          → [Default ▾]
 ```
 
 将某一行保留为 **Default** 即可使用第一个启用的服务商。你可以 **多次添加同一系列**（例如两个 OpenAI
 行，一个廉价模型和一个智能模型），并分别独立路由。
 
-### Configure Prompts
+### Prompt templates
 
-**Configure Prompts** 面板让你可以编辑每项功能背后的系统提示。编辑某个提示会使其缓存的响应失效。
+**Prompt templates** 面板让你可以编辑每项功能背后的系统提示。编辑某个提示会使其缓存的响应失效。
 
 ## 选择响应语言
 
-**General AI Settings** 分组中、主开关正下方的两项设置：
+**AI features** 分组中、主开关正下方的两项设置：
 
 | 设置                                                                        | 默认值 |
 |-----------------------------------------------------------------------------|--------|
-| **AI response language**                                                    | Auto   |
-| **Also use this language for PR titles, descriptions, and commit messages** | 关闭   |
+| **Response language**                                                    | Auto   |
+| **Also use it for pull request titles, descriptions and commit messages** | 关闭   |
 
-**AI response language** 是模型撰写摘要、代码解释、审查意见和流水线日志分析所用的语言。 **Auto** 跟随 IDE 语言；润色你自己
+**Response language** 是模型撰写摘要、代码解释、审查意见和流水线日志分析所用的语言。 **Auto** 跟随 IDE 语言；润色你自己
 撰写的文本时，始终保持你所使用的语言。下方的复选框是单独的选择加入项，因为 PR 标题、描述和提交信息会进入 git
 历史并出现在拉取请求上，在那里团队的约定比你 IDE 的语言更重要——无论如何，你在 IDE 内阅读的内容都跟随该下拉框。
 
@@ -162,4 +162,4 @@ AI 差异中剔除；重命名的文件只发送其实际编辑内容，已删�
 ## 保持一切本地，或完全关闭
 
 - **本地推理：** 将每项功能都路由到 `localhost` 上的 **Ollama** 实例 - 没有任何代码离开你的机器。
-- **完全关闭：** 取消勾选 **Enable AI assistance**。所有 AI 功能都会从菜单和工具栏中消失，插件也不会发出任何对外的 AI 调用。
+- **完全关闭：** 取消勾选 **Enable AI features**。所有 AI 功能都会从菜单和工具栏中消失，插件也不会发出任何对外的 AI 调用。

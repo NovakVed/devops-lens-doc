@@ -130,18 +130,18 @@ Pipelines는 항상 켜져 있습니다. 리포지토리가 Azure DevOps 원격 
 
 ![AI Settings 페이지](ai-settings-ko.png){ width="720" border-effect="line" thumbnail="true" }
 
-- **General AI Settings → Enable AI assistance** - 마스터 스위치입니다. **기본값 on**이지만, 공급자를 추가하고 활성화하기 전까지는 아무 동작도 하지 않습니다: 사용
+- **AI features → Enable AI features** - 마스터 스위치입니다. **기본값 on**이지만, 공급자를 추가하고 활성화하기 전까지는 아무 동작도 하지 않습니다: 사용
   가능한 공급자가 없으면 플러그인은 외부로 나가는 AI 호출을 전혀 하지 않으며, AI 요소는 대신 이 페이지로 안내합니다. 스위치를 끄면 모든 AI 요소가 숨겨집니다.
-- **General AI Settings → AI response language** - 모델이 요약, 코드 설명, 리뷰 노트, 파이프라인 로그 분석을 어떤 언어로
+- **AI features → Response language** - 모델이 요약, 코드 설명, 리뷰 노트, 파이프라인 로그 분석을 어떤 언어로
   작성할지 정합니다. **Auto**는 IDE 언어를 따르며, 직접 작성한 텍스트를 다듬을 때는 항상 그 텍스트를 쓴 언어가 유지됩니다.
-  아래의 확인란 - **Also use this language for PR titles, descriptions, and commit messages** - 은 별도의 옵트인으로
+  아래의 확인란 - **Also use it for pull request titles, descriptions and commit messages** - 은 별도의 옵트인으로
   **기본값 off**입니다: 제목, 설명, 커밋 메시지는 git 히스토리와 풀 리퀘스트에 남는 것이라 IDE 언어보다 팀의 관례가 더
   중요하기 때문입니다. IDE 안에서 읽는 내용은 어느 쪽이든 드롭다운을 따릅니다.
-- **AI Providers** - 공급자 인스턴스마다 한 행씩 표시됩니다 (**Provider / Model / Enabled**). 활성화된 첫 번째 행이 기본값입니다. **Add AI Provider** 대화
+- **Model providers** - 공급자 인스턴스마다 한 행씩 표시됩니다 (**Provider / Model / Active**). 활성화된 첫 번째 행이 기본값입니다. **Add AI Provider** 대화
   상자를 통해 추가하고 (OpenAI, Claude, Gemini, Ollama, GitHub Copilot; HTTP-API 또는 CLI 모드), 저장하기 전에 **Test Connection**으로 확인하세요.
-- **Per-Feature Provider** - **AI Summary**, **AI Review**, **Title + Description**, **Explain Code**를 특정 인스턴스로 라우팅하거나
+- **Provider per feature** - **Pull request summary**, **Code review**, **Title and description**, **Explain code**를 특정 인스턴스로 라우팅하거나
   **Default**로 둡니다.
-- **Configure Prompts** - 각 기능의 시스템 프롬프트를 편집합니다.
+- **Prompt templates** - 각 기능의 시스템 프롬프트를 편집합니다.
 - **AI agents (MCP) → Let AI agents change Azure DevOps** - **기본값 off**. IDE에 내장된 MCP 서버에 연결된 AI 에이전트는
   로그인된 연결을 통해 풀 리퀘스트와 파이프라인을 항상 **읽을** 수 있으며, 여기에는 아무 설정도 필요하지 않습니다. 이
   설정은 무언가를 변경하는 작업(댓글, 투표, 스레드 해결, 파이프라인 실행 및 취소)을 추가합니다. 대상은 *외부* 에이전트이므로

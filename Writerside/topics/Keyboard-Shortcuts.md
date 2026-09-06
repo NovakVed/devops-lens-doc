@@ -21,8 +21,8 @@ Every shortcut the plugin uses, in one place. There are two kinds:
     </def>
 </deflist>
 
-> On macOS, <shortcut>⌘</shortcut> is Command and <shortcut>⌃</shortcut> is **Control** - most actions use ⌘, but a few
-> use ⌃. Windows / Linux use <shortcut>Ctrl</shortcut>.
+> On macOS, <shortcut>⌘</shortcut> is Command; Windows / Linux use <shortcut>Ctrl</shortcut>.
+> Every shortcut below follows that pairing.
 > {style="note"}
 
 ## Tool windows
@@ -62,13 +62,17 @@ then <shortcut>⌘L</shortcut>.
 
 ## In the editor (review-in-editor)
 
-| Action                 | macOS                    | Windows / Linux                   | Action ID                                    |
-|------------------------|--------------------------|-----------------------------------|----------------------------------------------|
-| **Add Review Comment** | <shortcut>⌃⇧M</shortcut> | <shortcut>Ctrl+Shift+M</shortcut> | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink`       |
+| Action                 | macOS                    | Windows / Linux                   | Action ID                              |
+|------------------------|--------------------------|-----------------------------------|----------------------------------------|
+| **Add Review Comment** | <shortcut>⌘⇧X</shortcut> | <shortcut>Ctrl+Shift+X</shortcut> | `Code.Review.Editor.New.Comment`       |
+| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink` |
 
 **Add Review Comment** only fires when the caret is on a changed line of a file in an open PR -
-see [](Review-in-Editor.md). **Copy Link to Code** (right-click → **Copy / Paste Special**) also works
+see [](Review-in-Editor.md). It is the IDE's own action, and it covers every case: with nothing selected it
+comments on the caret line, with text selected it anchors to exactly those characters, and across several
+lines it reads **Add Multiline Review Comment**. Being the IDE's action, it is **unbound on the Eclipse,
+Eclipse (Mac OS X) and Emacs keymaps** - the IDE drops the combo there because those keymaps already use it.
+Bind your own under <ui-path>Settings | Keymap</ui-path> if you are on one of them. **Copy Link to Code** (right-click → **Copy / Paste Special**) also works
 outside a review, in any file of the connected repository - see [](Code-Review.md).
 
 ## In the editor (any file)
@@ -84,13 +88,13 @@ own via [Keymap](#rebind):
 
 ## In the diff viewer
 
-| Action                        | macOS                                              | Windows / Linux                                         | Action ID                                    |
-|-------------------------------|----------------------------------------------------|---------------------------------------------------------|----------------------------------------------|
-| **Mark File as Viewed**       | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed`   |
-| **Add Review Comment**        | <shortcut>⌃⇧M</shortcut>                           | <shortcut>Ctrl+Shift+M</shortcut>                       | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**         | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`       |
-| Next / previous changed range | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *built-in IntelliJ diff*                     |
-| **Next / previous comment**   | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *in-view keys*                               |
+| Action                        | macOS                                              | Windows / Linux                                         | Action ID                                  |
+|-------------------------------|----------------------------------------------------|---------------------------------------------------------|--------------------------------------------|
+| **Mark File as Viewed**       | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed` |
+| **Add Review Comment**        | <shortcut>⌘⇧X</shortcut>                           | <shortcut>Ctrl+Shift+X</shortcut>                       | `Code.Review.Editor.New.Comment`           |
+| **Copy Link to Code**         | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`     |
+| Next / previous changed range | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *built-in IntelliJ diff*                   |
+| **Next / previous comment**   | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *in-view keys*                             |
 
 > <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> walk **human threads, your pending drafts, and AI suggestions** in one top-to-bottom reading order. There are deliberately no <shortcut>J</shortcut>/<shortcut>K</shortcut> aliases in the diff - those stay free for IdeaVim motion. While an **AI suggestion card** has focus, <shortcut>A</shortcut> adds it to your review and <shortcut>D</shortcut> discards it.
 > {style="tip"}
@@ -114,9 +118,9 @@ so they're identical on every platform apart from the modifier key.
 | **Submit** (Comment / Reply / Save) | <shortcut>⌘↵</shortcut>  | <shortcut>Ctrl+Enter</shortcut>   |
 | **Cancel / close editor**           | <shortcut>⎋</shortcut>   | <shortcut>Esc</shortcut>          |
 
-> Two similar shortcuts, different jobs: **Mention user** (<shortcut>⇧⌘M</shortcut>) inserts an `@mention` *inside* a
-> composer, while **Add Review Comment** (<shortcut>⌃⇧M</shortcut>) *starts* a new comment at the caret in the editor or
-> diff.
+> Two comment shortcuts, different jobs: **Mention user** (<shortcut>⇧⌘M</shortcut>) inserts an `@mention` *inside* a
+> composer that is already open, while **Add Review Comment** (<shortcut>⌘⇧X</shortcut>) *starts* a new comment in the
+> editor or diff - at the caret line, or over whatever you have selected.
 > {style="note"}
 
 ## In the image preview {id="image-preview" collapsible="true"}
@@ -247,9 +251,9 @@ are fixed.
     <step>Click <b>OK</b>.</step>
 </procedure>
 
-> The two **tool-window** shortcuts are IDE actions too, but their IDs (`ActivatePullRequestsWindowToolWindow` /
-> `ActivatePipelinesWindowToolWindow`) don't contain `AzureDevOps` - search **Pull Requests** or **Pipelines** to find and
-> rebind them.
+> Three of the actions above are the IDE's own, so their IDs don't contain `AzureDevOps`: search **Pull Requests** or
+> **Pipelines** for the two tool-window shortcuts (`ActivatePullRequestsWindowToolWindow` /
+> `ActivatePipelinesWindowToolWindow`), and **Add Review Comment** for `Code.Review.Editor.New.Comment`.
 > {style="note"}
 
 > Use the **action ID** column when filing a bug - it identifies the exact action across IDE versions where display

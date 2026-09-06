@@ -13,8 +13,8 @@
 - **뷰 내부 키** - 특정 뷰 (댓글 작성기, 풀 리퀘스트 타임라인, 이미지 미리 보기, 파이프라인 실행 편집기, 통계 뷰, 도구 창의 검색 필드)에 내장되어 있으며 해당 뷰에 포커스가 있을 때만 활성화됩니다.
   Keymap에 없으며 재바인딩할 수 없습니다.
 
-> macOS에서 <shortcut>⌘</shortcut>는 Command이고 <shortcut>⌃</shortcut>는 **Control**입니다 - 대부분의 액션은 ⌘를 사용하지만 일부는 ⌃를 사용합니다.
-> Windows / Linux에서는 <shortcut>Ctrl</shortcut>을 사용합니다.
+> macOS에서는 <shortcut>⌘</shortcut>(Command)를, Windows / Linux에서는 <shortcut>Ctrl</shortcut>을 사용합니다.
+> 아래 단축키는 모두 이 짝을 따릅니다.
 > {style="note"}
 
 ## 도구 창
@@ -52,12 +52,16 @@
 
 ## 편집기 내부 (편집기에서 리뷰)
 
-| 액션                   | macOS                    | Windows / Linux                   | Action ID                                    |
-|------------------------|--------------------------|-----------------------------------|----------------------------------------------|
-| **Add Review Comment** | <shortcut>⌃⇧M</shortcut> | <shortcut>Ctrl+Shift+M</shortcut> | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink`       |
+| 액션                   | macOS                    | Windows / Linux                   | Action ID                              |
+|------------------------|--------------------------|-----------------------------------|----------------------------------------|
+| **Add Review Comment** | <shortcut>⌘⇧X</shortcut> | <shortcut>Ctrl+Shift+X</shortcut> | `Code.Review.Editor.New.Comment`       |
+| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink` |
 
-**Add Review Comment**는 캐럿이 열린 PR에 속한 파일의 변경된 줄 위에 있을 때만 동작합니다. [](Review-in-Editor-ko.md)를 참조하세요. **Copy Link
+**Add Review Comment**는 캐럿이 열린 PR에 속한 파일의 변경된 줄 위에 있을 때만 동작합니다. [](Review-in-Editor-ko.md)를 참조하세요.
+이는 IDE 자체의 액션이며 모든 경우를 하나로 처리합니다. 아무것도 선택하지 않았다면 캐럿이 있는 줄에 댓글을 달고, 텍스트를
+선택했다면 정확히 그 문자 범위에 연결하며, 여러 줄에 걸치면 **Add Multiline Review Comment**로 표시됩니다. IDE 자체 액션이므로 **Eclipse, Eclipse (Mac OS X),
+Emacs 키맵에서는 단축키가 없습니다** - 해당 키맵에서는 같은 조합이 이미 쓰이고 있어 IDE가 이를 제거합니다. 그런 키맵을
+쓰고 있다면 <ui-path>Settings | Keymap</ui-path>에서 직접 지정하세요. **Copy Link
 to Code**(마우스 오른쪽 버튼 클릭 → **Copy / Paste Special**)는 리뷰 밖에서도, 연결된 리포지토리의 아무 파일에서나 사용할 수 있습니다. [](Code-Review-ko.md)
 를 참조하세요.
 
@@ -73,13 +77,13 @@ to Code**(마우스 오른쪽 버튼 클릭 → **Copy / Paste Special**)는 리
 
 ## diff (변경 내용) 뷰어 내부
 
-| 액션                    | macOS                                              | Windows / Linux                                         | Action ID                                    |
-|-------------------------|----------------------------------------------------|---------------------------------------------------------|----------------------------------------------|
-| **Mark File as Viewed** | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed`   |
-| **Add Review Comment**  | <shortcut>⌃⇧M</shortcut>                           | <shortcut>Ctrl+Shift+M</shortcut>                       | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**   | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`       |
-| 다음 / 이전 변경 범위   | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *IntelliJ 내장 diff*                         |
-| **다음 / 이전 댓글**    | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *뷰 내부 키*                                 |
+| 액션                    | macOS                                              | Windows / Linux                                         | Action ID                                  |
+|-------------------------|----------------------------------------------------|---------------------------------------------------------|--------------------------------------------|
+| **Mark File as Viewed** | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed` |
+| **Add Review Comment**  | <shortcut>⌘⇧X</shortcut>                           | <shortcut>Ctrl+Shift+X</shortcut>                       | `Code.Review.Editor.New.Comment`           |
+| **Copy Link to Code**   | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`     |
+| 다음 / 이전 변경 범위   | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *IntelliJ 내장 diff*                       |
+| **다음 / 이전 댓글**    | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *뷰 내부 키*                               |
 
 > <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut>은 **사람의 스레드, 대기 중인 초안, AI 제안**을 위에서 아래로 이어지는 하나의 읽기 순서로 이동합니다. diff에는 의도적으로 <shortcut>J</shortcut>/<shortcut>K</shortcut> 별칭이 없습니다 - IdeaVim 이동을 위해 비워 두었습니다. **AI 제안 카드**에 포커스가 있는 동안 <shortcut>A</shortcut>는 리뷰에 추가하고 <shortcut>D</shortcut>는 버립니다.
 > {style="tip"}
@@ -102,8 +106,9 @@ to Code**(마우스 오른쪽 버튼 클릭 → **Copy / Paste Special**)는 리
 | **Submit** (Comment / Reply / Save) | <shortcut>⌘↵</shortcut>  | <shortcut>Ctrl+Enter</shortcut>   |
 | **Cancel / close editor**           | <shortcut>⎋</shortcut>   | <shortcut>Esc</shortcut>          |
 
-> 비슷하지만 역할이 다른 두 단축키: **Mention user**(<shortcut>⇧⌘M</shortcut>)는 작성기 *내부*에 `@mention`을 삽입하고, **Add Review Comment**
-> (<shortcut>⌃⇧M</shortcut>)는 편집기나 diff에서 캐럿 위치에 새 댓글을 *시작*합니다.
+> 역할이 다른 두 개의 댓글 단축키: **Mention user**(<shortcut>⇧⌘M</shortcut>)는 이미 열려 있는 작성기 *내부*에 `@mention`을 삽입하고,
+> **Add Review Comment**(<shortcut>⌘⇧X</shortcut>)는 편집기나 diff에서 새 댓글을 *시작*합니다. 대상은 캐럿이 있는 줄이며,
+> 텍스트를 선택했다면 선택한 범위입니다.
 > {style="note"}
 
 ## 이미지 미리 보기 내부
@@ -230,6 +235,7 @@ to Code**(마우스 오른쪽 버튼 클릭 → **Copy / Paste Special**)는 리
 
 > 두 개의 **도구 창** 단축키도 IDE 액션이지만, 해당 ID (`ActivatePullRequestsWindowToolWindow` / `ActivatePipelinesWindowToolWindow`)에는
 > `AzureDevOps`가 포함되어 있지 않습니다 - **Pull Requests** 또는 **Pipelines**로 검색하여 찾고 재바인딩하세요.
+> **Add Review Comment**(`Code.Review.Editor.New.Comment`)도 마찬가지이며, 액션 이름으로 검색하면 됩니다.
 > {style="note"}
 
 > 버그를 신고할 때는 **action ID** 열을 사용하세요 - 표시 이름이 다를 수 있는 IDE 버전 전반에서 정확한 액션을 식별해 줍니다.

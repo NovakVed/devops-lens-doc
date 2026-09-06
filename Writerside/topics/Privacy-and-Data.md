@@ -61,7 +61,7 @@ Diffs are pre-filtered before they leave the IDE: lockfiles, minified and genera
 folders are stripped; a renamed file contributes only its actual edits; a deleted file contributes a one-line note (its
 path and removed line count) instead of its contents.
 
-Each AI request also carries the system prompt the plugin builds for that feature. You can override these prompts in <ui-path>Settings | Tools | DevOps Lens | AI Settings | Configure Prompts</ui-path>.
+Each AI request also carries the system prompt the plugin builds for that feature. You can override these prompts in <ui-path>Settings | Tools | DevOps Lens | AI Settings | Prompt templates</ui-path>.
 
 ### Provider data-flow matrix
 

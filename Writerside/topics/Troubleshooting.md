@@ -104,8 +104,8 @@ git config --global credential.helper libsecret
 
 ## AI features are missing or return errors
 
-- Open <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> and confirm **Enable AI assistance**
-  is checked and at least one provider is configured and enabled.
+- Open <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> and confirm **Enable AI features**
+  is checked and at least one provider is connected and active.
 - Click **Test connection** on the provider row - if it fails, double-check API key, model name, and endpoint URL.
 - For **Ollama**, confirm the daemon is running locally (`ollama serve`) and the model you specified is pulled
   (`ollama list`).

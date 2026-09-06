@@ -87,7 +87,7 @@ git config --global credential.helper libsecret
 
 ## AI 功能缺失或返回错误
 
-- 打开 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>，确认已勾选 **Enable AI assistance**
+- 打开 <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>，确认已勾选 **Enable AI features**
   ，并且至少配置并启用了一个提供程序。
 - 在提供程序行上单击 **Test connection** — 如果失败，请仔细核对 API 密钥、模型名称和端点 URL。
 - 对于 **Ollama**，请确认守护进程正在本地运行（`ollama serve`），并且你指定的模型已拉取（`ollama list`）。

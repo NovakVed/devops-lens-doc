@@ -13,8 +13,8 @@
 - **视图内按键** —— 内置于某个特定视图（评论编辑器、拉取请求时间线、图片预览、管道运行编辑器、统计视图、工具窗口的搜索框），仅在该视图获得焦点时生效。它们不在
   Keymap 中，也无法重新绑定。
 
-> 在 macOS 上，<shortcut>⌘</shortcut> 是 Command，<shortcut>⌃</shortcut> 是 **Control** —— 大多数操作使用 ⌘，但少数使用
-> ⌃。Windows / Linux 使用 <shortcut>Ctrl</shortcut>。
+> 在 macOS 上使用 <shortcut>⌘</shortcut>（Command），在 Windows / Linux 上使用 <shortcut>Ctrl</shortcut>。
+> 下面的快捷键都遵循这一对应关系。
 > {style="note"}
 
 ## 工具窗口
@@ -50,13 +50,16 @@ IntelliJ 占用了其中大多数：⌘⇧J 是 Database console，⌘⇧O 是 G
 
 ## 在编辑器中（在编辑器中审查）
 
-| 操作                   | macOS                    | Windows / Linux                   | Action ID                                    |
-|------------------------|--------------------------|-----------------------------------|----------------------------------------------|
-| **Add Review Comment** | <shortcut>⌃⇧M</shortcut> | <shortcut>Ctrl+Shift+M</shortcut> | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink`       |
+| 操作                   | macOS                    | Windows / Linux                   | Action ID                              |
+|------------------------|--------------------------|-----------------------------------|----------------------------------------|
+| **Add Review Comment** | <shortcut>⌘⇧X</shortcut> | <shortcut>Ctrl+Shift+X</shortcut> | `Code.Review.Editor.New.Comment`       |
+| **Copy Link to Code**  | <shortcut>⌘⇧L</shortcut> | <shortcut>Ctrl+Shift+L</shortcut> | `AzureDevOps.PullRequest.CopyCodeLink` |
 
 **Add Review Comment**
-只有当光标位于已打开拉取请求中某个文件的已更改行上时才会触发，参见[](Review-in-Editor-zh.md)。 **Copy Link
+只有当光标位于已打开拉取请求中某个文件的已更改行上时才会触发，参见[](Review-in-Editor-zh.md)。它是 IDE 自带的操作，一个入口覆盖
+所有情况：未选中任何内容时对光标所在行评论，选中文本时精确锚定到这些字符，跨多行时则显示为 **Add Multiline Review
+Comment**。由于它是 IDE 自带的操作，在 **Eclipse、Eclipse (Mac OS X) 和 Emacs 键位映射中没有绑定**——这些键位映射已占用该
+组合，IDE 会将其移除。如果你使用其中之一，请在 <ui-path>Settings | Keymap</ui-path> 中自行绑定。 **Copy Link
 to Code**（右键 → **Copy / Paste Special**
 ）在审查之外也可用——已连接仓库中的任何文件都可以，参见[](Code-Review-zh.md)。
 
@@ -72,13 +75,13 @@ to Code**（右键 → **Copy / Paste Special**
 
 ## 在差异查看器中
 
-| 操作                        | macOS                                              | Windows / Linux                                         | Action ID                                    |
-|-----------------------------|----------------------------------------------------|---------------------------------------------------------|----------------------------------------------|
-| **Mark File as Viewed**     | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed`   |
-| **Add Review Comment**      | <shortcut>⌃⇧M</shortcut>                           | <shortcut>Ctrl+Shift+M</shortcut>                       | `AzureDevOps.PullRequest.AddCommentAtCursor` |
-| **Copy Link to Code**       | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`       |
-| 下一处 / 上一处已更改的范围 | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *IntelliJ 内置差异*                          |
-| **下一条 / 上一条评论**     | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *视图内按键*                                 |
+| 操作                        | macOS                                              | Windows / Linux                                         | Action ID                                  |
+|-----------------------------|----------------------------------------------------|---------------------------------------------------------|--------------------------------------------|
+| **Mark File as Viewed**     | <shortcut>⌘⇧S</shortcut>                           | <shortcut>Ctrl+Shift+S</shortcut>                       | `AzureDevOps.PullRequest.MarkFileAsViewed` |
+| **Add Review Comment**      | <shortcut>⌘⇧X</shortcut>                           | <shortcut>Ctrl+Shift+X</shortcut>                       | `Code.Review.Editor.New.Comment`           |
+| **Copy Link to Code**       | <shortcut>⌘⇧L</shortcut>                           | <shortcut>Ctrl+Shift+L</shortcut>                       | `AzureDevOps.PullRequest.CopyCodeLink`     |
+| 下一处 / 上一处已更改的范围 | <shortcut>F7</shortcut> / <shortcut>⇧F7</shortcut> | <shortcut>F7</shortcut> / <shortcut>Shift+F7</shortcut> | *IntelliJ 内置差异*                        |
+| **下一条 / 上一条评论**     | <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> | <shortcut>F8</shortcut> / <shortcut>Shift+F8</shortcut> | *视图内按键*                               |
 
 > <shortcut>F8</shortcut> / <shortcut>⇧F8</shortcut> 会按同一自上而下的阅读顺序遍历**人工会话、你的待提交草稿和 AI 建议**。差异中特意没有 <shortcut>J</shortcut>/<shortcut>K</shortcut> 别名 —— 这两个键留给 IdeaVim 的移动操作。当某张 **AI 建议卡片**获得焦点时，<shortcut>A</shortcut> 会将其加入你的审查，<shortcut>D</shortcut> 会将其丢弃。
 > {style="tip"}
@@ -101,8 +104,8 @@ to Code**（右键 → **Copy / Paste Special**
 | **Submit**（Comment / Reply / Save） | <shortcut>⌘↵</shortcut>  | <shortcut>Ctrl+Enter</shortcut>   |
 | **Cancel / close editor**            | <shortcut>⎋</shortcut>   | <shortcut>Esc</shortcut>          |
 
-> 两个相似的快捷键，用途不同： **Mention user**（<shortcut>⇧⌘M</shortcut>）在编辑器 *内部*插入一个 `@mention`，而 **Add
-Review Comment**（<shortcut>⌃⇧M</shortcut>）则在编辑器或差异中光标处 *开始*一条新评论。
+> 两个与评论相关的快捷键，用途不同： **Mention user**（<shortcut>⇧⌘M</shortcut>）在已打开的编写器 *内部*插入一个 `@mention`，而 **Add
+Review Comment**（<shortcut>⌘⇧X</shortcut>）则在编辑器或差异中 *开始*一条新评论——针对光标所在行，或你选中的文本。
 > {style="note"}
 
 ## 在图片预览中 {id="image-preview"}
@@ -228,7 +231,8 @@ Review Comment**（<shortcut>⌃⇧M</shortcut>）则在编辑器或差异中光
 </procedure>
 
 > 这两个 **工具窗口**快捷键也是 IDE 操作，但它们的 ID（`ActivatePullRequestsWindowToolWindow` /
-> `ActivatePipelinesWindowToolWindow`）不包含 `AzureDevOps` —— 搜索 **Pull Requests** 或 **Pipelines** 即可找到并重新绑定它们。
+> `ActivatePipelinesWindowToolWindow`）和 **Add Review Comment**（`Code.Review.Editor.New.Comment`）都不包含
+> `AzureDevOps` —— 分别搜索 **Pull Requests**、 **Pipelines** 和 **Add Review Comment** 即可找到并重新绑定。
 > {style="note"}
 
 > 提交 bug 时请使用 **action ID** 列 —— 它能在显示名称有时不同的各个 IDE 版本间准确标识出具体的操作。

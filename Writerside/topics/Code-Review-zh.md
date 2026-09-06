@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>位置</b>：打开一个 PR，然后在<b>changed-files 树</b>中点击文件。</p>
-    <p><b>评论</b>：差异边栏中的 <b>+</b>，或 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>。</p>
+    <p><b>评论</b>：差异边栏中的 <b>+</b>，或 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>。</p>
     <p><b>提交</b>：差异的 <b>Review:</b> 工具栏上的 <b>Submit</b> 按钮带有投票选项。</p>
 </tldr>
 
@@ -54,9 +54,9 @@ PR 触及的二进制文件会在同一个差异选项卡中打开，但渲染�
 ## 对某一行评论
 
 <procedure title="添加行内评论">
-    <step>将鼠标悬停在改动行的边栏上——会出现一个 <b>+</b>。点击它（或在行号上拖动以跨越一个范围）。你也可以在光标处按 <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>。</step>
+    <step>将鼠标悬停在改动行的边栏上——会出现一个 <b>+</b>。点击它（或在行号上拖动以跨越一个范围）。你也可以在光标处按 <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>。先选中文本，评论就会精确锚定到这些字符，而不是整行。</step>
     <step>输入你的评论。编辑器与 PR 讨论使用的是同一个——带有格式工具栏的 <b>Write</b> / <b>Preview</b> 选项卡条位于顶部，还支持 @提及 和图片粘贴。完整的编辑器介绍参见 <a href="Discussions-and-Comments-zh.md"/>。</step>
-    <step>通过拆分式提交按钮发布评论。主操作是 <b>Start Review</b>，它会将评论作为待处理审查的一部分排队；其下拉菜单包含 <b>Add Single Comment</b>（立即发布）和 <b>Suggest change</b>（将所选内容包装为作者可应用的建议改动）。</step>
+    <step>通过拆分式提交按钮发布评论。主操作是 <b>Start Review</b>，它会将评论作为待处理审查的一部分排队；其下拉菜单包含 <b>Add Single Comment</b>（立即发布）和 <b>Suggest change</b>（将你输入的内容包装为作者可应用的建议改动——锚定到行内部分选区时只替换你选中的字符，卡片仍会预览整行的改动前后）。</step>
 </procedure>
 
 ![在差异查看器中打开的行内评论](inline-diff-comment.png){ width="720" border-effect="line" thumbnail="true" }

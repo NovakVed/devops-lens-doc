@@ -26,7 +26,7 @@ OAuth では下記のスコープコードを自動的に要求します。PAT �
 | **Build → Read &amp; execute**              | `vso.build_execute`                 | 実行、ログ、成果物、定義、カバレッジの読み取り、実行の開始/キャンセル/再試行、定義と保持リースの編集。 |
 | **Pipeline Resources → Use**                | `vso.pipelineresources_use`         | 保護されたパイプラインリソースの使用要求の承認または拒否。 |
 | **Test Management → Read**                  | `vso.test`                          | テスト実行、結果、カバレッジの読み取り。アバターに使用するプロフィールアクセスも含まれます。 |
-| **Environment → Read &amp; manage**         | `vso.environment_manage`            | 環境とデプロイ記録の読み取り。Azure には読み取り専用の環境スコープがなく、Agents ビューで使うエージェントプールアクセスも含まれます。 |
+| **Environment → Read &amp; manage**         | `vso.environment_manage`            | 環境とデプロイ記録の読み取り。Azure には読み取り専用の環境スコープがなく、Agent pools ビューで使うエージェントプールアクセスも含まれます。 |
 
 OAuth はさらに Microsoft に `offline_access` を要求します。これにより IDE を再起動するたびにサインインし直さずにセッションを更新できますが、追加の Azure DevOps データへのアクセスは許可されません。
 

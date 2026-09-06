@@ -3,7 +3,7 @@
 User-facing documentation for **DevOps Lens**, a JetBrains IDE plugin for Azure DevOps.
 
 - **Live site**: <https://novakved.github.io/devops-lens-doc/>
-- **Plugin (Marketplace)**: <https://plugins.jetbrains.com/plugin/com.vednovak.devops>
+- **Plugin (Marketplace)**: <https://plugins.jetbrains.com/plugin/33734-devops-lens>
 - **Plugin source**: lives in a separate repository.
 
 ## What's in this repo

@@ -66,7 +66,7 @@ The login dialog lists them too:
 | **Build** → *Read &amp; execute*       | Pipeline runs, logs, artifacts, definitions, coverage, queue/cancel/retry and retention leases.                                                                |
 | **Pipeline Resources** → *Use*         | Approving or rejecting protected-resource requests.                                                                                                            |
 | **Test Management** → *Read*           | Test runs, results and coverage; it also includes the profile access used for avatars.                                                                          |
-| **Environment** → *Read &amp; manage*  | Environments and deployment records; Azure has no read-only environment scope. It also includes agent-pool access used by the Agents view.                     |
+| **Environment** → *Read &amp; manage*  | Environments and deployment records; Azure has no read-only environment scope. It also includes agent-pool access used by the Agent pools view.                     |
 
 ### 2. Add it to the plugin
 
@@ -129,7 +129,6 @@ via Microsoft…** stays on screen but disabled, with the tooltip *"Microsoft si
 Services (dev.azure.com). Use a Personal Access Token for on-prem Azure DevOps Server."* **Log In with Token…** next to
 it stays enabled.
 
-![The tool-window sign-in screen on an on-prem collection: Log In via Microsoft greyed out, Log In with Token enabled](oauth-access-scope-dialog.png){ width="720" border-effect="line" thumbnail="true" }
 
 ### What to paste into Server {collapsible="true"}
 

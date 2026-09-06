@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>場所</b>: いつものエディター。チェックアウト中のブランチがオープン PR のソースブランチと一致したとき。</p>
-    <p><b>コメント</b>: ガターの <b>+</b>、または <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut>。</p>
+    <p><b>コメント</b>: ガターの <b>+</b>、または <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut>。</p>
     <p><b>切り替え</b>: メインツールバーのブランチウィジェットのポップアップにある <b>Review Mode</b>。</p>
 </tldr>
 
@@ -36,7 +36,7 @@ PR で変更のある各ファイルには、次のものが付きます。
 ## コメントとレビュー
 
 <procedure title="エディターからコメントを追加する">
-    <step>ガター内の <b>+</b> をクリックします（またはキャレット位置で <shortcut>⌃⇧M</shortcut> / <shortcut>Ctrl+Shift+M</shortcut> を押します）。</step>
+    <step>ガター内の <b>+</b> をクリックします（またはキャレット位置で <shortcut>⌘⇧X</shortcut> / <shortcut>Ctrl+Shift+X</shortcut> を押します）。先にテキストを選択しておくと、コメントはその文字範囲に正確に対応付けられます。</step>
     <step>コメントを入力します。ほかの場所と同じツールバー、@メンション、提案、画像の貼り付けが使える完全な markdown です。</step>
     <step>すぐに投稿するか、保留中のレビューの一部としてキューに入れるか、提案された変更としてラップします。</step>
 </procedure>

@@ -203,6 +203,15 @@ jobs:
       # Writerside's own "highlighted" band uses so both themes work without
       # hardcoded hex. Scoped to the section-page template; article pages are
       # untouched. All four language Welcome pages share this file.
+      #
+      # The --title section (title + spotlight cards) ships with zero bottom
+      # padding: stock Writerside paints it and the next band the same colour,
+      # so nothing shows. With alternating bands the Key Features band started
+      # flush against the spotlight cards' bottom edge. Every other band ends
+      # 48px below its last card (32px card margin + 16px section padding), so
+      # give the title section the same, from the same flow-unit tokens. Below
+      # 1000px Writerside puts the 32px margin on the spotlight cards themselves,
+      # so only the 16px section padding is added there.
       - name: "Home page: alternating section bands (theme-aware)"
         run: |
           cat > site/home-sections.css <<'EOF'
@@ -218,6 +227,14 @@ jobs:
           [data-template="section-page"] .section-starting-page-content > .section-starting-page-content__section:nth-child(even) .section-starting-page-content__card,
           [data-template="section-page"] .section-starting-page-content > .section-starting-page-content__section:nth-child(even) .section-starting-page-content__card:hover {
             background-color: var(--wh-color-bg-main);
+          }
+          [data-template="section-page"] .section-starting-page-content > .section-starting-page-content__section--title {
+            padding-bottom: calc(var(--wh-flow-unit-m) + var(--wh-flow-unit-sm));
+          }
+          @media screen and (max-width: 1000px) {
+            [data-template="section-page"] .section-starting-page-content > .section-starting-page-content__section--title {
+              padding-bottom: var(--wh-flow-unit-sm);
+            }
           }
           EOF
           find site -name '*.html' -print0 \

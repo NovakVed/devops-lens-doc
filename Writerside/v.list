@@ -6,7 +6,7 @@
     <var name="plugin_id" value="com.vednovak.devops"/>
     <var name="repo_url" value="https://github.com/NovakVed/devops-lens-doc"/>
     <var name="docs_url" value="https://novakved.github.io/devops-lens-doc/"/>
-    <var name="marketplace_url" value="https://plugins.jetbrains.com/plugin/com.vednovak.devops"/>
+    <var name="marketplace_url" value="https://plugins.jetbrains.com/plugin/33734-devops-lens"/>
     <var name="tracker_url" value="https://github.com/NovakVed/devops-lens-issues"/>
     <var name="issues_url" value="https://github.com/NovakVed/devops-lens-issues/issues"/>
     <var name="new_bug_url" value="https://github.com/NovakVed/devops-lens-issues/issues/new?template=bug_report.yml"/>

@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>Where</b>: the AI summary card on the PR timeline, the diff toolbar, and every comment editor.</p>
-    <p><b>Turn it on</b>: <b>Enable AI assistance</b> in <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>, then add a provider.</p>
+    <p><b>Turn it on</b>: <b>Enable AI features</b> in <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>, then add a provider.</p>
 </tldr>
 
 Optional AI helpers: PR summaries, full-diff reviews, code explanations, commit messages, PR title/description drafts,
@@ -28,7 +28,7 @@ serve your Azure DevOps data to it as [MCP tools](MCP-Tools.md).
 | **Run AI Review**                         | Walks the diff and proposes inline review comments.                                                                                                              | Diff toolbar / changes-tree menu / overflow                |
 | **Explain This File**                     | Streams a plain-English explanation of a file or selection.                                                                                                      | Right-click in the diff                                    |
 | **Generate Commit Message with AI**       | Drafts a commit message from your staged changes.                                                                                                                | Commit tool window                                         |
-| **Title + Description**                   | Pre-fills the Create-PR form from your branch's diff.                                                                                                            | Create Pull Request form                                   |
+| **Title and description**                   | Pre-fills the Create-PR form from your branch's diff.                                                                                                            | Create Pull Request form                                   |
 | **Polish grammar &amp; spelling with AI** | Cleans up any comment or description in place.                                                                                                                   | Every comment editor                                       |
 | **Analyze logs with AI**                  | Explains a finished pipeline run from its logs - root cause and fixes for a failure, a short summary for a green run. Sends only the relevant parts of the logs. | [Pipeline run job logs](Pipelines.md#analyze-logs-with-ai) |
 
@@ -80,7 +80,7 @@ summary is generated:
 | **Verbosity**                      | Slider: **Brief** · **Neutral** · **Verbose**.                                                                                                                              |
 | **Formality tone**                 | Slider: **Informal** · **Neutral** · **Formal**.                                                                                                                            |
 | **Personality**                    | Free-text - an optional persona, e.g. "a slightly sarcastic principal engineer".                                                                                            |
-| **Customization prompt**           | Free-text - leave blank to use the default. It's the same override as **Configure Prompts → Pull Request summary** in AI Settings, so edits in either surface stay in sync. |
+| **Customization prompt**           | Free-text - leave blank to use the default. It's the same override as **Prompt templates → Pull Request summary** in AI Settings, so edits in either surface stay in sync. |
 
 There's no Save button - edit the controls and dismiss the popup to apply.
 
@@ -91,10 +91,9 @@ There's no Save button - edit the controls and dismiss the popup to apply.
 ![The AI Settings page: providers and per-feature routing](configure-providers.png){ width="720" border-effect="line" thumbnail="true" }
 
 <procedure title="Add an AI provider">
-    <step>Open <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> and turn on <b>Enable AI
-        assistance</b> (the master switch).</step>
-    <step>Add a provider in the <b>AI Providers</b> table. Each row is one provider instance with a <b>Provider</b>,
-        <b>Model</b>, and <b>Enabled</b> column; the first enabled row is the default.</step>
+    <step>Open <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path> and turn on <b>Enable AI features</b> (the master switch).</step>
+    <step>Add a provider in the <b>Model providers</b> table. Each row is one provider instance with a <b>Provider</b>,
+        <b>Model</b>, and <b>Active</b> column; the first active row is the default.</step>
     <step>In the <b>Add AI Provider</b> dialog, pick one of the five families (below) and a <b>Model</b>.</step>
     <step>On a reasoning model, optionally pick an <b>Effort</b> (below). Leave it on <b>Model default</b> if you're
         not sure.</step>
@@ -134,7 +133,7 @@ dropdown appears under **Model**:
 Which levels are offered depends on the family and the exact model - newer models expose more of them, and models with
 no reasoning control don't show the row at all. Effort is set **per provider instance**, so a common setup is two rows
 against the same family: a fast, low-effort one for summaries and a slower, high-effort one routed at AI Review under
-[Per-Feature Provider](#route-features-to-providers).
+[Provider per feature](#route-features-to-providers).
 
 Higher effort costs more, because reasoning tokens are billed. See [Caching, cost, and limits](#caching-cost-and-limits).
 
@@ -155,34 +154,34 @@ Most families run in one of two **modes**:
 
 ## Route features to providers
 
-The **Per-Feature Provider** panel pins each feature to a specific instance - handy for sending cheap features to a
+The **Provider per feature** panel pins each feature to a specific instance - handy for sending cheap features to a
 small model and heavy reviews to a smart one:
 
 ```
-AI Summary          → [Default ▾]
-AI Review           → [Default ▾]
-Title + Description → [Default ▾]   (also used by Generate Commit Message)
-Explain Code        → [Default ▾]
+Pull request summary  → [Default ▾]
+Code review           → [Default ▾]
+Title and description → [Default ▾]   (also used by Generate Commit Message)
+Explain code          → [Default ▾]
 ```
 
-Leave a row on **Default** to use the first enabled provider. You can add the **same family more than once** (e.g. two
+Leave a row on **Default** to use the first active provider. You can add the **same family more than once** (e.g. two
 OpenAI rows, a cheap model and a smart one) and route to each independently.
 
-### Configure Prompts
+### Prompt templates
 
-The **Configure Prompts** panel lets you edit the system prompt behind each feature. Editing a prompt invalidates cached
+The **Prompt templates** panel lets you edit the system prompt behind each feature. Editing a prompt invalidates cached
 responses for it.
 
 ## Pick the response language
 
-Two settings in the **General AI Settings** group, right under the master switch:
+Two settings in the **AI features** group, right under the master switch:
 
 | Setting                                                                     | Default |
 |-----------------------------------------------------------------------------|---------|
-| **AI response language**                                                    | Auto    |
-| **Also use this language for PR titles, descriptions, and commit messages** | Off     |
+| **Response language**                                                    | Auto    |
+| **Also use it for pull request titles, descriptions and commit messages** | Off     |
 
-**AI response language** is the language the model writes summaries, code explanations, review notes, and pipeline log
+**Response language** is the language the model writes summaries, code explanations, review notes, and pipeline log
 analysis in. **Auto** follows the IDE language; polishing text you wrote yourself always keeps the language you wrote
 it in. The checkbox beneath is a separate opt-in because PR titles, descriptions, and commit messages land in git
 history and on the pull request, where your team's convention matters more than your IDE's language - what you read
@@ -211,5 +210,5 @@ actual edits, and a deleted file sends a one-line note instead of its contents.
 ## Keep everything local, or off
 
 - **Local inference:** route every feature at an **Ollama** instance on `localhost` - no code leaves your machine.
-- **Off entirely:** uncheck **Enable AI assistance**. Every AI affordance disappears from menus and toolbars, and the
+- **Off entirely:** uncheck **Enable AI features**. Every AI affordance disappears from menus and toolbars, and the
   plugin makes zero outbound AI calls.

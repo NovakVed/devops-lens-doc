@@ -2,7 +2,7 @@
 
 <tldr>
     <p><b>위치</b>: PR 타임라인의 AI 요약 카드, Diff 도구 모음, 모든 댓글 편집기.</p>
-    <p><b>켜는 방법</b>: <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>에서 <b>Enable AI assistance</b>를 켠 다음 공급자를 추가하세요.</p>
+    <p><b>켜는 방법</b>: <ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>에서 <b>Enable AI features</b>를 켠 다음 공급자를 추가하세요.</p>
 </tldr>
 
 선택적 AI 도우미: PR 요약, 전체 diff (변경 내용) 리뷰, 코드 설명, 커밋 메시지, PR 제목/설명 초안, 문법 다듬기, 파이프라인 로그 분석. **자신의 공급자를 직접 사용하세요** - OpenAI,
@@ -26,7 +26,7 @@ Claude, Gemini, Ollama 또는 GitHub Copilot - 그리고 각 기능을 원하는
 | **Run AI Review**                         | diff(변경 내용)를 살펴보고 인라인 리뷰 댓글을 제안합니다.                                                                                     | Diff 도구 모음 / 변경 내용 트리 메뉴 / 오버플로                   |
 | **Explain This File**                     | 파일이나 선택 영역에 대한 쉬운 영어 설명을 스트리밍합니다.                                                                                    | diff(변경 내용)에서 오른쪽 클릭                                   |
 | **Generate Commit Message with AI**       | 스테이징된 변경 사항으로 커밋 메시지 초안을 작성합니다.                                                                                       | Commit 도구 창                                                    |
-| **Title + Description**                   | 브랜치의 diff(변경 내용)로 Create-PR 양식을 미리 채웁니다.                                                                                    | Create Pull Request 양식                                          |
+| **Title and description**                   | 브랜치의 diff(변경 내용)로 Create-PR 양식을 미리 채웁니다.                                                                                    | Create Pull Request 양식                                          |
 | **Polish grammar &amp; spelling with AI** | 모든 댓글이나 설명을 제자리에서 정리합니다.                                                                                                   | 모든 댓글 편집기                                                  |
 | **Analyze logs with AI**                  | 완료된 파이프라인 실행을 로그로 설명합니다 - 실패라면 근본 원인과 수정안을, 성공이라면 짧은 요약을 제공합니다. 로그의 관련 부분만 전송합니다. | [파이프라인 실행 작업 로그](Pipelines-ko.md#analyze-logs-with-ai) |
 
@@ -72,7 +72,7 @@ review.* 로 바뀝니다.
 | **Verbosity**                      | 슬라이더: **Brief** · **Neutral** · **Verbose**.                                                                                                                               |
 | **Formality tone**                 | 슬라이더: **Informal** · **Neutral** · **Formal**.                                                                                                                             |
 | **Personality**                    | 자유 텍스트 - 선택적 페르소나, 예: "약간 냉소적인 수석 엔지니어".                                                                                                              |
-| **Customization prompt**           | 자유 텍스트 - 기본값을 사용하려면 비워 두세요. 이는 AI Settings의 **Configure Prompts → Pull Request summary**와 동일한 재정의이므로 어느 쪽에서 편집하든 동기화가 유지됩니다. |
+| **Customization prompt**           | 자유 텍스트 - 기본값을 사용하려면 비워 두세요. 이는 AI Settings의 **Prompt templates → Pull Request summary**와 동일한 재정의이므로 어느 쪽에서 편집하든 동기화가 유지됩니다. |
 
 Save 버튼은 없습니다 - 컨트롤을 편집하고 팝업을 닫으면 적용됩니다.
 
@@ -80,7 +80,7 @@ Save 버튼은 없습니다 - 컨트롤을 편집하고 팝업을 닫으면 적�
 
 ## 공급자 구성
 
-<ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>를 열고 **Enable AI assistance**(마스터 스위치)를 켜세요. 그런 다음 **AI Providers** 표에서 공급자를 추가하세요.
+<ui-path>Settings | Tools | DevOps Lens | AI Settings</ui-path>를 열고 **Enable AI features**(마스터 스위치)를 켜세요. 그런 다음 **Model providers** 표에서 공급자를 추가하세요.
 
 ![AI Settings 페이지: 공급자 및 기능별 라우팅](configure-providers-ko.png){ width="720" border-effect="line" thumbnail="true" }
 
@@ -110,32 +110,32 @@ Save 버튼은 없습니다 - 컨트롤을 편집하고 팝업을 닫으면 적�
 
 ## 기능을 공급자로 라우팅
 
-**Per-Feature Provider** 패널은 각 기능을 특정 인스턴스에 고정합니다 - 저렴한 기능은 작은 모델로, 무거운 리뷰는 똑똑한 모델로 보내는 데 유용합니다:
+**Provider per feature** 패널은 각 기능을 특정 인스턴스에 고정합니다 - 저렴한 기능은 작은 모델로, 무거운 리뷰는 똑똑한 모델로 보내는 데 유용합니다:
 
 ```
-AI Summary          → [Default ▾]
-AI Review           → [Default ▾]
-Title + Description → [Default ▾]   (also used by Generate Commit Message)
-Explain Code        → [Default ▾]
+Pull request summary  → [Default ▾]
+Code review           → [Default ▾]
+Title and description → [Default ▾]   (also used by Generate Commit Message)
+Explain code          → [Default ▾]
 ```
 
 행을 **Default**로 두면 활성화된 첫 번째 공급자가 사용됩니다. **같은 제품군을 두 번 이상** 추가할 수 있으며 (예: 저렴한 모델과 똑똑한 모델의 OpenAI 행 두 개), 각각에 독립적으로 라우팅할
 수 있습니다.
 
-### Configure Prompts
+### Prompt templates
 
-**Configure Prompts** 패널을 사용하면 각 기능 뒤에 있는 시스템 프롬프트를 편집할 수 있습니다. 프롬프트를 편집하면 해당 기능에 대한 캐시된 응답이 무효화됩니다.
+**Prompt templates** 패널을 사용하면 각 기능 뒤에 있는 시스템 프롬프트를 편집할 수 있습니다. 프롬프트를 편집하면 해당 기능에 대한 캐시된 응답이 무효화됩니다.
 
 ## 응답 언어 선택 {id="pick-the-response-language"}
 
-**General AI Settings** 그룹에서 마스터 스위치 바로 아래에 있는 두 개의 설정입니다:
+**AI features** 그룹에서 마스터 스위치 바로 아래에 있는 두 개의 설정입니다:
 
 | 설정                                                                        | 기본값 |
 |-----------------------------------------------------------------------------|--------|
-| **AI response language**                                                    | Auto   |
-| **Also use this language for PR titles, descriptions, and commit messages** | 끔     |
+| **Response language**                                                    | Auto   |
+| **Also use it for pull request titles, descriptions and commit messages** | 끔     |
 
-**AI response language**는 모델이 요약, 코드 설명, 리뷰 노트, 파이프라인 로그 분석을 작성하는 언어입니다. **Auto**는 IDE
+**Response language**는 모델이 요약, 코드 설명, 리뷰 노트, 파이프라인 로그 분석을 작성하는 언어입니다. **Auto**는 IDE
 언어를 따르며, 직접 작성한 텍스트를 다듬을 때는 항상 그 텍스트를 쓴 언어가 유지됩니다. 아래의 확인란이 별도의 옵트인인
 이유는, PR 제목과 설명, 커밋 메시지는 git 히스토리와 풀 리퀘스트에 남는 것이라 IDE 언어보다 팀의 관례가 더 중요하기
 때문입니다 - IDE 안에서 읽는 내용은 어느 쪽이든 드롭다운을 따릅니다.
@@ -160,4 +160,4 @@ AI 응답은 **PR별 + 커밋 SHA별**로 캐시됩니다 (토글: **Cache AI re
 ## 모든 것을 로컬에 유지하거나, 끄기
 
 - **로컬 추론:** 모든 기능을 `localhost`의 **Ollama** 인스턴스로 라우팅하세요 - 어떤 코드도 사용자의 컴퓨터를 벗어나지 않습니다.
-- **완전히 끄기:** **Enable AI assistance**의 체크를 해제하세요. 모든 AI 기능이 메뉴와 도구 모음에서 사라지고 플러그인은 아웃바운드 AI 호출을 전혀 하지 않습니다.
+- **완전히 끄기:** **Enable AI features**의 체크를 해제하세요. 모든 AI 기능이 메뉴와 도구 모음에서 사라지고 플러그인은 아웃바운드 AI 호출을 전혀 하지 않습니다.

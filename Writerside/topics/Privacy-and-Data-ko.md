@@ -60,7 +60,7 @@ diff는 IDE를 떠나기 전에 사전 필터링됩니다: 잠금 파일, 압축
 내용 대신 한 줄짜리 메모 (경로와 삭제된 줄 수)만 포함됩니다.
 
 각 AI 요청에는 플러그인이 해당 기능에 대해 구성한 시스템 프롬프트도 함께 전달됩니다. 이러한 프롬프트는 <ui-path>Settings | Tools | DevOps Lens | AI
-Settings | Configure Prompts</ui-path>에서 재정의할 수 있습니다.
+Settings | Prompt templates</ui-path>에서 재정의할 수 있습니다.
 
 ### 공급자 데이터 흐름 매트릭스
 

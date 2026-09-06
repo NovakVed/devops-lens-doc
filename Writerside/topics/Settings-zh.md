@@ -122,18 +122,18 @@ Requests**。参见[](Find-Pull-Requests-From-Code-zh.md)。
 
 ![AI Settings 页面](ai-settings.png){ width="720" border-effect="line" thumbnail="true" }
 
-- **General AI Settings → Enable AI assistance** —— 主开关。 **默认开启**，但在你添加并启用某个提供程序之前不起作用：没有可用的提供程序时，插件不会发出任何外发
+- **AI features → Enable AI features** —— 主开关。 **默认开启**，但在你添加并启用某个提供程序之前不起作用：没有可用的提供程序时，插件不会发出任何外发
   AI 调用，各处的 AI 功能入口只会将你引导到本页面。关闭该开关则会隐藏所有 AI 相关功能。
-- **General AI Settings → AI response language** —— 模型用哪种语言撰写摘要、代码解释、审查意见和流水线日志分析。 **Auto**
+- **AI features → Response language** —— 模型用哪种语言撰写摘要、代码解释、审查意见和流水线日志分析。 **Auto**
   跟随 IDE 语言；润色你自己撰写的文本时，始终保持你所使用的语言。下方的复选框—— **Also use this language for PR titles,
   descriptions, and commit messages** ——是单独的选择加入项， **默认关闭**：这些内容会进入 git 历史并出现在拉取请求上，
   在那里团队的约定比你 IDE 的语言更重要。无论如何，你在 IDE 内阅读的内容都跟随该下拉框。
-- **AI Providers** —— 每个提供程序实例一行（ **Provider / Model / Enabled**）。第一个启用的行为默认项。通过 **Add AI
+- **Model providers** —— 每个提供程序实例一行（ **Provider / Model / Active**）。第一个启用的行为默认项。通过 **Add AI
   Provider** 对话框添加（OpenAI、Claude、Gemini、Ollama、GitHub Copilot；HTTP-API 或 CLI 模式），并在保存前用 **Test
   Connection** 验证。
-- **Per-Feature Provider** —— 将 **AI Summary**、 **AI Review**、 **Title + Description** 和 **Explain Code**
+- **Provider per feature** —— 将 **Pull request summary**、 **Code review**、 **Title and description** 和 **Explain code**
   路由到特定实例，或保持其为 **Default**。
-- **Configure Prompts** —— 编辑每项功能的系统提示词。
+- **Prompt templates** —— 编辑每项功能的系统提示词。
 - **AI agents (MCP) → Let AI agents change Azure DevOps** —— **默认关闭**。连接到 IDE 内置 MCP 服务器的 AI
   代理始终可以通过你已登录的连接**读取**拉取请求和流水线，这不需要任何设置。此项额外允许会更改内容的操作：评论、投票、解决讨论串、
   运行和取消流水线。它管辖的是*外部*代理，因此**不会**影响插件自身的 AI 功能——它放在本页面，只是因为你会在这里寻找与 AI
