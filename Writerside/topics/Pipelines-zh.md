@@ -115,35 +115,30 @@ tool-window icon when my runs finish** 控制它。参见 [Notifications &amp; A
 
 ## 运行选项卡
 
-始终存在的选项卡只有 **Summary**。其余选项卡都是在 **运行结束后、且该次运行确实拥有相应数据时**才会添加 ——
-缺少某个选项卡，就说明该次运行没有发布那类数据。无论出现哪几个，Summary 之后的顺序始终是
-**Tests、Extensions、Environments、Code coverage**。
+查看日志时，**Summary** 选项卡始终可见。打开作业或阶段后会添加 **Logs** 选项卡；作业导航器保留在 Pipelines 工具窗口中。报告选项卡在运行结束且存在相应数据时显示。顺序为 **Summary、Logs、Tests、Extensions、Environments、Code coverage**，不可用的选项卡会省略。
 
 | 选项卡            | 出现条件                   | 显示内容                                                                                                                               |
 |-------------------|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | **Summary**       | 始终显示                   | 阶段图，加上一个 **Repositories** 卡片（列为 **Resource Name、Repository、Branch/Tag、Version、Related**），前提是该运行具有仓库资源。 |
-| **Tests**         | 已结束的运行报告了测试结果 | 一个圆环摘要以及关联的测试用例（见下文）。                                                                                             |
-| **Extensions**    | 已结束的运行发布了扩展摘要 | 扩展发布的 markdown 摘要（例如一个 SonarQube 质量门），以圆角卡片形式呈现。                                                            |
+| **Logs** | 打开作业或阶段后 | 所选作业的步骤日志或阶段信息，切换选项卡时保留查看位置。 |
+| **Tests**         | 已结束的运行报告了测试结果 | 紧凑的结果计数和可排序的原生测试结果表格（见下文）。 |
+| **Extensions**    | 已结束的运行发布了扩展摘要 | 扩展发布的 Markdown 或 HTML 报告（例如 SonarQube 质量门），以细分隔线分开并保留链接。 |
 | **Environments**  | 已结束的运行部署到了环境   | 一个 **Environment、Last stage、Result、Finished** 表格 —— 仅列出**本次运行的部署**，而非项目范围内按环境显示最新状态的视图。          |
-| **Code coverage** | 已结束的运行发布了覆盖率   | 逐指标行，每行带有一个圆环（绿色 ≥80%、琥珀色 ≥50%、低于则为红色）以及一个 `X / Y covered` 数字。                                      |
+| **Code coverage** | 已结束的运行发布了覆盖率   | 包含 **Metric、Covered、Total、Coverage** 列的可排序原生表格。总数不为正数的指标，其百分比显示为破折号。 |
 
 当某次已结束的运行有产物时，底部会有一条 **Artifacts:** 条带，链接每一个产物（在浏览器中打开下载
 URL）。在你离线时无法加载的部分会如实说明，并在你重新连接时加载。
 
 ### Tests 选项卡
 
-![Tests 选项卡：结果圆环、统计块和可筛选的结果表](pipeline-tests.png){ width="720" border-effect="line" thumbnail="true" }
-
-一个 **圆环**（绿色 **Passed**、红色 **Failed**、灰色 **Others**）位于统计块旁边 —— **Total tests**、 **Pass percentage**、
-**Run duration** 和 **Tests not reported**。其下方， **Test results** 卡片带有一个筛选栏：
+紧凑地显示 **Total tests**、**Passed**、**Failed** 和 **Others** 计数，并在可用时显示 **Pass percentage** 和 **Run duration**。筛选栏位于结果表格正上方：
 
 - 一个搜索框（ **Filter by test or run name**）；<shortcut>⌘F</shortcut> / <shortcut>Ctrl+F</shortcut> 在 Tests
   选项卡显示时聚焦它，<shortcut>Esc</shortcut> 清除它。
 - 分面标签 —— **Test file** 和 **Owner**（各自仅在有两个或更多不同值时显示），加上一个 **Outcome** 标签。结果分桶为
-  **Failed、Aborted、Passed、Not Impacted、Others**，默认筛选为 **Failed + Aborted**。
+  **Failed、Aborted、Passed、Not Impacted、Others**，存在相应结果时默认为 **Failed + Aborted**，否则显示所有测试。
 
-表格列会根据数据自适应 —— **Test**、 **Owner**（如有）、 **Duration**（如有）、 **Outcome** —— 并被限制在 300
-行。当某个筛选隐藏了全部内容时，一个 **Show all tests** 链接会清除所有筛选。
+原生表格支持排序、选择和复制。列根据数据调整为 **Test**、**Test file**（如有）、**Owner**（如有）、**Duration**（如有）和 **Outcome**。最多显示 300 条匹配结果。筛选隐藏全部结果时，**Show all tests** 链接可清除所有筛选。
 
 ## 查看作业日志
 
@@ -156,7 +151,7 @@ URL）。在你离线时无法加载的部分会如实说明，并在你重新�
 
 ![一个作业的可折叠步骤日志，带有按颜色编码的输出](pipeline-logs.png){ width="720" border-effect="line" thumbnail="true" }
 
-日志上方有一条纤细的标题栏，带有一个 **← Summary** 返回链接（工具提示“Back to the run overview (L)”），然后是作业的状态图标、名称和元信息。
+日志上方始终显示 **Summary** 选项卡，单击即可返回概览。**Logs** 选项卡会保留所选作业和滚动位置；<shortcut>L</shortcut> 也可在 Summary 和日志之间切换。紧凑的标题栏显示作业状态图标、名称和时间信息。
 
 > **搜索日志：** 在某个作业的日志内按 <shortcut>⌘F</shortcut> / <shortcut>Ctrl+F</shortcut> 打开 IDE 查找栏（带有匹配计数器以及
 > Case / Words / Regex 切换）。<shortcut>Enter ↵</shortcut> 和 <shortcut>⇧↵</shortcut> 在匹配项之间移动 ——
@@ -165,11 +160,15 @@ URL）。在你离线时无法加载的部分会如实说明，并在你重新�
 
 ### 用 AI 分析日志 {id="analyze-logs-with-ai"}
 
-当一次运行 **结束**后，作业日志标题栏的右端会出现一个 **Analyze logs with AI** 灯泡按钮。点击它会在 Pipelines 工具窗口中打开一个
-**AI: #&lt;n&gt;** 选项卡，由你配置的 AI 服务商流式输出对这次运行的分析：失败的运行会给出根本原因、日志中的证据以及修复建议；成功的运行则给出一段简短的运行摘要。
+AI 日志分析目前始终覆盖**整个流水线运行**，包括从作业标题栏或步骤的 **⋮** 菜单打开时。按步骤或分组分析将留待后续实现。每个步骤菜单还提供指向该步骤的**复制链接**和**在浏览器中打开**。连接时始终可使用 **Statistics** 旁的 AI 按钮。在 **AI 分析** 中使用**选择已有运行…**、**分析日志**、**停止**及历史选择器。查看历史不会调用 AI，关闭标签页也不会停止分析。历史遵循与 PR 审查相同的保留和清除缓存设置。这些操作不会启动新的流水线运行。
+
+当一次运行 **结束**后，作业日志标题栏的右端会出现一个 **Analyze logs with AI** 按钮。点击它会在 Pipelines 工具窗口中打开一个
+**AI Analysis** 选项卡，由你配置的 AI 服务商流式输出对这次运行的分析：失败的运行会给出根本原因、日志中的证据以及修复建议；成功的运行则给出一段简短的运行摘要。
 
 只有日志的相关部分会被发送 —— 是失败步骤的错误及其上下文，而不是整个日志文件。结果按运行保留，因此关闭并重新打开该选项卡不会产生新的
-AI 调用；选项卡中的 **⟳** 按钮会显式地重新运行一次全新的分析。
+AI 调用；选项卡中的 **Analyze Logs** 按钮会显式地重新运行一次全新的分析。
+
+所有运行共享此标签页，可选择运行及历史分析。切换选择或重新打开保留的历史不会调用 AI。关闭标签页不会停止分析，请使用 **停止** 取消。历史遵循与 PR 审查相同的保留设置。
 
 这需要先配置 AI 服务商 —— 参见 [](AI-Features-zh.md)。未配置时，按钮会将你引导至 AI 设置。
 
@@ -181,7 +180,7 @@ AI 调用；选项卡中的 **⟳** 按钮会显式地重新运行一次全新�
 - **Timing** —— 排队 / 开始 / 完成时间戳以及阶段时长。对于 **正在运行**的阶段，时长行会实时跳动。
 - **Triggered by**、 **Commits** 和 **Variables** —— 运行级上下文，在该次运行的详情加载完成后显示。
 
-各行沿用与作业日志相同的语义着色（错误红色、警告琥珀色），且在你折叠和展开分组时行号保持稳定。 **← Summary** 返回链接可回到运行概览。
+各行沿用与作业日志相同的语义着色（错误红色、警告琥珀色），且在你折叠和展开分组时行号保持稳定。 **Summary** 选项卡可返回运行概览。
 
 ## IDE 内审批 {id="approvals"}
 

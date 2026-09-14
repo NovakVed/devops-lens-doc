@@ -1,7 +1,7 @@
 # 통계
 
 <tldr>
-    <p><b>위치</b>: 도구 창 툴바의 <b>Pull Request Statistics</b>(차트) 아이콘.</p>
+    <p><b>위치</b>: <b>Pull Requests</b> 도구 창 → 도구 모음 → <b>Pull Request Statistics</b>.</p>
     <p><b>데이터</b>: 이미 동기화된 PR에서 계산 - 추가 API 호출 없이 즉시 열립니다.</p>
 </tldr>
 
@@ -15,7 +15,7 @@ PR 기록을 KPI와 차트로 바꿔 주는 전용 편집기 탭입니다. 사�
 
 ## 열기
 
-도구 창 툴바에서 **Pull Request Statistics**(차트) 아이콘을 클릭하거나 *Find Action* → **Pull Request Statistics**를 실행하세요. 편집기 영역에 탭이 열리며,
+Pull Requests 도구 창의 도구 모음에서 **Pull Request Statistics**를 선택하거나 *Find Action* → **Pull Request Statistics**를 실행하세요. 편집기 영역에 탭이 열리며,
 **Refresh statistics**로 다시 계산할 수 있습니다.
 
 헤더 아래의 부제는 그 아래 모든 숫자가 공유하는 범위를 알려줍니다 - `128 PRs · Last 30 days`.

@@ -1,7 +1,7 @@
 # 統計情報
 
 <tldr>
-    <p><b>場所</b>: ツールウィンドウのツールバーにある <b>Pull Request Statistics</b>（チャート）アイコン。</p>
+    <p><b>場所</b>: <b>Pull Requests</b> ツールウィンドウ → ツールバー → <b>Pull Request Statistics</b>。</p>
     <p><b>データ</b>: 同期済みの PR から計算 - 追加の API 呼び出しなしで即座に開きます。</p>
 </tldr>
 
@@ -15,7 +15,7 @@ PR 履歴を KPI とチャートに変換する専用のエディタータブで
 
 ## 開く
 
-ツールウィンドウのツールバーにある **Pull Request Statistics**（チャート）アイコンをクリックするか、 *Find Action* → **Pull
+Pull Requests ツールウィンドウのツールバーから **Pull Request Statistics** を選択するか、 *Find Action* → **Pull
 Request Statistics** を実行します。タブがエディター領域に開きます。 **Refresh statistics** で再計算されます。
 
 ヘッダーの下のサブタイトルには、その下のすべての数値が共有するスコープが表示されます - `128 PRs · Last 30 days`。

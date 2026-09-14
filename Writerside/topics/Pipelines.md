@@ -161,36 +161,30 @@ vertical bands.
 
 ## The run tabs
 
-**Summary** is the only tab that is always there. Every other tab is added **once the run finishes, and only if the run
-actually has that data** - a missing tab simply means the run didn't publish it. Whatever subset appears, the order
-after Summary is always **Tests, Extensions, Environments, Code coverage**.
+**Summary** stays visible while you inspect logs. A **Logs** tab appears when you open a job or stage; the jobs navigator stays in the Pipelines tool window. Finished runs add report tabs only when they publish the corresponding data. The order is **Summary, Logs, Tests, Extensions, Environments, Code coverage**, with unavailable tabs omitted.
 
 | Tab               | Appears when                                   | What it shows                                                                                                                                              |
 |-------------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Summary**       | Always                                         | The stage graph, plus a **Repositories** card (columns **Resource Name, Repository, Branch/Tag, Version, Related**) when the run has repository resources. |
-| **Tests**         | The finished run reported test results         | A donut summary and the associated test cases (see below).                                                                                                 |
-| **Extensions**    | The finished run published extension summaries | Extension-published Markdown summaries (for example a SonarQube quality gate) as rounded cards.                                                            |
+| **Logs** | After opening a job or stage | The selected job’s step logs or stage information, with its position retained when switching tabs. |
+| **Tests**         | The finished run reported test results         | Compact outcome counts and a native, sortable test-results table (see below). |
+| **Extensions**    | The finished run published extension summaries | Extension-published Markdown or HTML reports (for example a SonarQube quality gate), separated by subtle dividers with their links preserved. |
 | **Environments**  | The finished run deployed to environments      | A table of **Environment, Last stage, Result, Finished** - **this run's deployments only**, not the project-wide latest-per-environment view.              |
-| **Code coverage** | The finished run published coverage            | Per-metric rows, each with a donut (green ≥80%, amber ≥50%, red below) and an `X / Y covered` figure.                                                      |
+| **Code coverage** | The finished run published coverage            | A native sortable table with **Metric, Covered, Total, Coverage** columns. Metrics without a positive total show a dash for the percentage. |
 
 When a finished run has artifacts, an **Artifacts:** strip at the bottom links each one (opens the download URL in the
 browser). Sections that can't load while you're offline say so and load when you reconnect.
 
 ### The Tests tab
 
-![The Tests tab: outcome donut, stat blocks, and the filterable results table](pipeline-tests.png){ width="720" border-effect="line" thumbnail="true" }
-
-A **donut** (green **Passed**, red **Failed**, gray **Others**) sits beside stat blocks - **Total tests**, **Pass
-percentage**, **Run duration**, and **Tests not reported**. Below it, the **Test results** card carries a filter bar:
+Compact counts show **Total tests**, **Passed**, **Failed**, and **Others**, alongside **Pass percentage** and **Run duration** when available. The filter bar sits directly above the results table:
 
 - A search box (**Filter by test or run name**); <shortcut>⌘F</shortcut> / <shortcut>Ctrl+F</shortcut> focuses it while
   the Tests tab is showing, and <shortcut>Esc</shortcut> clears it.
 - Facet chips - **Test file** and **Owner** (each shown only with two or more distinct values), plus an **Outcome**
-  chip. Outcome buckets are **Failed, Aborted, Passed, Not Impacted, Others**, and the default filter is **Failed +
-  Aborted**.
+  chip. Outcome buckets are **Failed, Aborted, Passed, Not Impacted, Others**. The default filter is **Failed + Aborted** when those results exist; otherwise all tests are shown.
 
-The table columns adapt to the data - **Test**, **Owner** (if any), **Duration** (if any), **Outcome** - and are capped
-at 300 rows. When a filter hides everything, a **Show all tests** link clears every filter.
+The native table supports sorting, selection, and copying. Its columns adapt to the data: **Test**, **Test file** (if any), **Owner** (if any), **Duration** (if any), and **Outcome**. At most 300 matching rows are displayed. When a filter hides everything, a **Show all tests** link clears every filter.
 
 ## View job logs
 
@@ -204,8 +198,7 @@ own - the group header gets a clickable chevron, and line numbers stay stable wh
 
 ![A job's collapsible step logs with color-coded output](pipeline-logs.png){ width="720" border-effect="line" thumbnail="true" }
 
-A slim header bar above the logs has a **← Summary** back-link (tooltip "Back to the run overview (L)"), then the job's
-status icon, name, and meta.
+The **Summary** tab stays visible above the logs, so returning to the overview takes one click. The **Logs** tab keeps your selected job and scroll position; <shortcut>L</shortcut> also toggles between Summary and logs. A compact header shows the job’s status icon, name, and timing.
 
 > **Search the logs:** press <shortcut>⌘F</shortcut> / <shortcut>Ctrl+F</shortcut> inside a job's logs to open the IDE
 > find bar (with a match counter and Case / Words / Regex toggles). <shortcut>Enter ↵</shortcut> and <shortcut>
@@ -215,14 +208,18 @@ status icon, name, and meta.
 
 ### Analyze logs with AI {id="analyze-logs-with-ai"}
 
-Once a run has **finished**, an **Analyze logs with AI** bulb button appears at the right end of the job-log header bar.
-Clicking it opens an **AI: #&lt;n&gt;** tab in the Pipelines tool window, where your configured AI provider streams an
+AI log analysis currently covers the **whole pipeline run**, including when opened from a job header or a step’s **⋮** menu. Per-step and per-group analysis is deferred. Each step menu also provides **Copy Link** and **Open in Browser**, both targeting that step. The AI button beside **Statistics** stays available while connected. In **AI Analysis**, use **Choose Existing Run…** to select a finished run, **Analyze Logs** for a fresh analysis, **Stop** to cancel, and the history selector to reopen a retained result. Selecting history makes no AI call; closing the tab does not stop generation. History follows the same retention and clear-cache settings as PR reviews. These actions never start a new pipeline run.
+
+Once a run has **finished**, an **Analyze logs with AI** button appears at the right end of the job-log header bar.
+Clicking it opens an **AI Analysis** tab in the Pipelines tool window, where your configured AI provider streams an
 analysis of the run: for a failed run, the root cause, the evidence in the logs, and suggested fixes; for a successful
 run, a short summary of what ran.
 
 Only the relevant parts of the logs are sent - the failing steps' errors with their surrounding context, not whole log
-files. The result is kept per run, so closing and re-opening the tab shows it again without a new AI call; the **⟳**
+files. The result is kept per run, so closing and re-opening the tab shows it again without a new AI call; the **Analyze Logs**
 button in the tab runs a deliberately fresh analysis.
+
+All runs share this tab: select the run and, when available, an older analysis in the history dropdown. Changing selections or reopening retained history makes no AI call. Closing the tab does not stop an active analysis; use **Stop** to cancel it. History uses the same retention settings as PR reviews.
 
 This needs an AI provider configured - see [](AI-Features.md). Without one, the button points you at the AI
 settings.
@@ -238,7 +235,7 @@ Clicking a **stage header** in the jobs rail opens the stage's **information pan
 - **Triggered by**, **Commits**, and **Variables** - run-level context, shown once the run's details have loaded.
 
 Lines carry the same semantic coloring as job logs (errors red, warnings amber), and line numbers stay stable as you
-collapse and expand groups. The **← Summary** back-link returns to the run overview.
+collapse and expand groups. The **Summary** tab returns to the run overview.
 
 ## In-IDE approvals {id="approvals"}
 

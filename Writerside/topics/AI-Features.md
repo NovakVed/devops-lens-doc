@@ -47,27 +47,36 @@ serve your Azure DevOps data to it as [MCP tools](MCP-Tools.md).
 > fix command (for example `claude /login`).
 > {style="note"}
 
+### Review findings and history
+
+**Run AI Review** opens a single **AI Reviews** tab in the **Pull Requests** tool window, scoped to that PR.
+Select a file to open its next suggestion, or expand the file to choose a specific suggestion.
+The tree uses the same folders, file icons and change colors as PR review. A blue dot marks items you have not viewed.
+Hover over a suggestion, file, or folder to mark it viewed with the checkbox; click again to mark it not viewed.
+Files and folders toggle all suggestions beneath them and show a partial check for mixed state. Space and the right-click menu work too.
+Viewed state is saved per run, independently of dismissing or editing suggestions. New runs start unviewed.
+Hover over the pull request or history selector for file coverage. The latest review is shown first; the history selector appears
+when the PR has more than one run. Choose **All pull requests** to browse reviews across repositories in the current account.
+
+- **Run AI Review** fetches the latest PR revision before starting. **Stop Review** cancels the active run.
+- Each completed run records its provider/model, revision, completion time, and file coverage. Skipped files are counted
+  explicitly; no findings does not mean every changed file was reviewed.
+- **Dismiss Finding** and **Restore Finding** update the same suggestions shown in the diff. Restoring does not call AI.
+- **Opened for editing** means a suggestion was handed to the ordinary comment editor. It does not mean the comment
+  was saved or posted. Submit comments through the normal PR review workflow.
+- Previous runs remain available. Historical findings open a read-only diff of the revision that was reviewed.
+
+History is saved locally in the IDE cache and survives an IDE restart. It is bounded to the newest eight runs per PR
+and 80 runs overall, subject to cache size limits. It is not uploaded to Azure DevOps or synced with IDE settings.
+
 ### Is the AI review still current?
 
-The PR timeline's right-hand sidebar carries an **AI review** section - the at-a-glance answer to whether the last
-review still matches the code. It shows one of three states:
+The timeline sidebar keeps a compact **AI review** status with **Open AI Reviews** and **Re-run**. A source or target
+revision change marks the saved review as outdated. **Re-run** starts a new, billable review; opening history and
+restoring dismissed findings do not.
 
-| State           | What the section says                                                                                                                                                                                            |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Never run**   | *Not run for this pull request yet.* over a **Run AI review** link.                                                                                                                                              |
-| **Fresh**       | ✓ *Reviewed 2 hours ago*, then the count - *"3 suggestions, inline in the diff."* or *"No suggestions - clean pass."* - over **View suggestions** and **Re-run**.                                               |
-| **Out of date** | ⚠ *Review out of date*, then *"2 new commits since the last review."* - or *"The pull request changed since the last review."* when no count can be derived, as after a force-push - over **Re-run AI review**. |
-
-**View suggestions** jumps into the diff at the first suggestion; it appears only when the run produced at least one.
-**Re-run** takes the same path as **Run AI Review** anywhere else, so it's a fresh, billable pass - unlike restoring a
-discarded suggestion.
-
-The section is live: it re-renders on every poll, commit load, and finished review, so *Reviewed 2 hours ago* flips to
-*2 new commits since the last review.* the moment a push lands.
-
-> The whole section is hidden while AI is off or no provider is configured - an empty **AI review** heading would be
-> dead chrome, and the onboarding card already covers the unconfigured case.
-> {style="note"}
+The sidebar section is hidden when AI is disabled or unconfigured. Saved history is still accessible through
+the **AI Reviews** button in the Pull Requests tool-window toolbar.
 
 ### Tune the summary {id="tune-the-summary" collapsible="true"}
 
@@ -212,3 +221,11 @@ actual edits, and a deleted file sends a one-line note instead of its contents.
 - **Local inference:** route every feature at an **Ollama** instance on `localhost` - no code leaves your machine.
 - **Off entirely:** uncheck **Enable AI features**. Every AI affordance disappears from menus and toolbars, and the
   plugin makes zero outbound AI calls.
+
+## AI tool-window actions
+
+Open **AI Reviews** from the AI button beside **Statistics** in the Pull Requests tool window. Its toolbar keeps **Run AI Review** and **Open Pull Request** visible while details load. Use **Choose pull request…** to search for a PR, including one with no review history, then run its review directly here. A cold action waits for the PR and reports a loading failure instead of silently doing nothing.
+
+AI log analysis currently covers the **whole pipeline run**, including when opened from a job header or a step’s **⋮** menu. Per-step and per-group analysis is deferred. Each step menu also provides **Copy Link** and **Open in Browser**, both targeting that step. The AI button beside **Statistics** stays available while connected. In **AI Analysis**, use **Choose Existing Run…** to select a finished run, **Analyze Logs** for a fresh analysis, **Stop** to cancel, and the history selector to reopen a retained result. Selecting history makes no AI call; closing the tab does not stop generation. History follows the same retention and clear-cache settings as PR reviews. These actions never start a new pipeline run.
+
+In the PR and existing-run choosers, **Enter** selects the highlighted item for AI review or analysis; **Shift+Enter** opens its PR timeline or pipeline run directly. The existing-run chooser uses the same compact rows and popup background as pipeline quick search.

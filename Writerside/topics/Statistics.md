@@ -1,7 +1,7 @@
 # Statistics
 
 <tldr>
-    <p><b>Where</b>: the <b>Pull Request Statistics</b> (chart) icon in the tool-window toolbar.</p>
+    <p><b>Where</b>: <b>Pull Requests</b> tool window → toolbar → <b>Pull Request Statistics</b>.</p>
     <p><b>Data</b>: computed from already-synced PRs - opens instantly, no extra API calls.</p>
 </tldr>
 
@@ -16,7 +16,7 @@ IDE.
 
 ## Open it
 
-Click the **Pull Request Statistics** (chart) icon in the tool-window toolbar, or run *Find Action* → **Pull Request
+Choose **Pull Request Statistics** from the Pull Requests tool window’s toolbar, or run *Find Action* → **Pull Request
 Statistics**. The tab opens in the editor area; **Refresh statistics** recomputes it.
 
 A subtitle under the header states the scope every number below it shares - `128 PRs · Last 30 days`.

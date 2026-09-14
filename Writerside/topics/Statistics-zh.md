@@ -1,7 +1,7 @@
 # 统计
 
 <tldr>
-    <p><b>位置</b>：工具窗口工具栏中的 <b>Pull Request Statistics</b>（图表）图标。</p>
+    <p><b>位置</b>：<b>Pull Requests</b> 工具窗口 → 工具栏 → <b>Pull Request Statistics</b>。</p>
     <p><b>数据</b>：基于已同步的 PR 计算——即开即用，不产生额外的 API 调用。</p>
 </tldr>
 
@@ -15,7 +15,7 @@
 
 ## 打开它
 
-在工具窗口工具栏中点击 **Pull Request Statistics**（图表）图标，或运行 *Find Action* → **Pull Request Statistics**
+在 Pull Requests 工具窗口的工具栏中选择 **Pull Request Statistics**，或运行 *Find Action* → **Pull Request Statistics**
 。该选项卡会在编辑器区域中打开； **Refresh statistics** 会重新计算它。
 
 标题下方的副标题会说明其下所有数字共享的范围——`128 PRs · Last 30 days`。
